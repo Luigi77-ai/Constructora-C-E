@@ -9,8 +9,6 @@
   <meta property="og:description" content="Obra, eléctricos, HVAC y jardinería. Un solo equipo, cuatro disciplinas." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="NÚCLEO — Constructora integral" />
-  <meta name="twitter:description" content="Obra, eléctricos, HVAC y jardinería. Un solo equipo, cuatro disciplinas." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,130 +16,56 @@
 
   <style>
     :root{
-      --bg:#0f0b0b;
-      --bg-soft:#171111;
-      --card:#1b1414;
-      --card-2:#241919;
-      --text:#f7f1e8;
-      --muted:#c7b8a8;
+      --bg:#0f1117;
+      --bg-soft:#161b23;
+      --card:#1a1f2b;
+      --card-2:#212838;
+      --text:#f6f1e8;
+      --muted:#cbbfae;
       --line:rgba(255,255,255,.08);
-      --line-2:rgba(255,214,10,.2);
-      --primary:#c61f1f;
-      --primary-2:#8f1414;
-      --accent:#e0b100;
-      --accent-2:#f1c93b;
-      --white:#ffffff;
-      --section-light:#f6f1e7;
-      --section-light-text:#1a1412;
-      --shadow:0 18px 50px rgba(0,0,0,.25);
+      --primary-red:#b71c1c;
+      --primary-red-2:#d62828;
+      --primary-yellow:#d4a017;
+      --primary-yellow-2:#f0c64a;
+      --primary-blue:#1f4e79;
+      --primary-blue-2:#2f6fa8;
+      --light:#f7f2e9;
+      --light-text:#171411;
+      --shadow:0 18px 50px rgba(0,0,0,.24);
       --container:1600px;
       --transition:all .35s ease;
       --header-height:82px;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    html{
-      scroll-behavior:smooth;
-    }
-
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
     body{
-      font-family:'Archivo', sans-serif;
+      font-family:'Archivo',sans-serif;
       background:var(--bg);
       color:var(--text);
       line-height:1.5;
     }
-
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
-
-    img, video{
-      display:block;
-      max-width:100%;
-    }
-
+    a{text-decoration:none;color:inherit;}
+    img,video{display:block;max-width:100%;}
     .container{
       width:min(var(--container), calc(100% - 48px));
       margin-inline:auto;
     }
-
     .mono{
-      font-family:'JetBrains Mono', monospace;
+      font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
       letter-spacing:.16em;
       font-size:12px;
     }
 
-    .section{
-      padding:96px 0;
-    }
-
-    .section-dark{
-      background:var(--bg);
-      color:var(--text);
-      border-top:1px solid var(--line);
-    }
-
-    .section-light{
-      background:var(--section-light);
-      color:var(--section-light-text);
-      border-top:1px solid rgba(0,0,0,.08);
-      border-bottom:1px solid rgba(0,0,0,.08);
-    }
-
-    .section-head{
-      display:flex;
-      align-items:end;
-      justify-content:space-between;
-      gap:24px;
-      flex-wrap:wrap;
-      margin-bottom:48px;
-    }
-
-    .section-kicker{
-      color:var(--accent);
-      margin-bottom:12px;
-    }
-
-    .section-light .section-kicker,
-    .section-light .muted-kicker{
-      color:#7c6d5f;
-    }
-
-    .section-title{
-      font-size:clamp(2.4rem, 6vw, 5.6rem);
-      font-weight:900;
-      line-height:.95;
-      letter-spacing:-.05em;
-    }
-
-    .section-note{
-      max-width:340px;
-      font-size:12px;
-      font-family:'JetBrains Mono', monospace;
-      color:var(--muted);
-    }
-
-    .section-light .section-note{
-      color:#7c6d5f;
-    }
-
     header{
       position:fixed;
-      top:0;
-      left:0;
-      right:0;
+      top:0;left:0;right:0;
       z-index:100;
       height:var(--header-height);
       backdrop-filter:blur(16px);
-      background:rgba(15,11,11,.82);
-      border-bottom:1px solid rgba(224,177,0,.18);
+      background:rgba(15,17,23,.82);
+      border-bottom:1px solid rgba(240,198,74,.18);
     }
 
     .nav-wrap{
@@ -161,7 +85,7 @@
     .brand-mark{
       width:24px;
       height:24px;
-      background:linear-gradient(135deg, var(--accent), var(--primary));
+      background:linear-gradient(135deg,var(--primary-yellow),var(--primary-red),var(--primary-blue));
       clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
       flex:0 0 auto;
     }
@@ -179,7 +103,7 @@
     }
 
     nav a{
-      font-family:'JetBrains Mono', monospace;
+      font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
       letter-spacing:.16em;
       font-size:12px;
@@ -187,9 +111,7 @@
       transition:var(--transition);
     }
 
-    nav a:hover{
-      color:var(--accent);
-    }
+    nav a:hover{color:var(--primary-yellow-2);}
 
     .btn{
       display:inline-flex;
@@ -197,9 +119,9 @@
       justify-content:center;
       min-height:44px;
       padding:14px 18px;
-      background:linear-gradient(135deg, var(--primary), var(--accent));
+      background:linear-gradient(135deg,var(--primary-red),var(--primary-yellow),var(--primary-blue));
       color:#fff;
-      font-family:'JetBrains Mono', monospace;
+      font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
       letter-spacing:.12em;
       font-size:12px;
@@ -218,9 +140,7 @@
       padding-top:var(--header-height);
     }
 
-    .hero-bg,
-    .hero-overlay,
-    .hero-grid{
+    .hero-bg,.hero-overlay,.hero-grid{
       position:absolute;
       inset:0;
     }
@@ -233,8 +153,8 @@
 
     .hero-overlay{
       background:
-        linear-gradient(to bottom, rgba(15,11,11,.58), rgba(15,11,11,.35), rgba(15,11,11,.96)),
-        linear-gradient(135deg, rgba(198,31,31,.18), rgba(224,177,0,.12));
+        linear-gradient(to bottom, rgba(10,12,17,.55), rgba(10,12,17,.35), rgba(10,12,17,.94)),
+        linear-gradient(135deg, rgba(183,28,28,.18), rgba(212,160,23,.14), rgba(31,78,121,.18));
     }
 
     .hero-grid{
@@ -265,25 +185,20 @@
       max-width:10ch;
     }
 
-    .hero h1 .accent{
-      color:var(--accent);
-    }
-
-    .hero h1 .muted{
-      color:#e6c7a8;
-    }
+    .hero h1 .accent{color:var(--primary-yellow-2);}
+    .hero h1 .muted{color:#d8ddea;}
 
     .hero-grid-boxes{
       display:grid;
       grid-template-columns:repeat(5, 1fr);
       gap:1px;
-      background:rgba(224,177,0,.12);
-      border-top:1px solid rgba(224,177,0,.18);
+      background:rgba(240,198,74,.14);
+      border-top:1px solid rgba(240,198,74,.18);
       margin-top:auto;
     }
 
     .hero-grid-box{
-      background:rgba(15,11,11,.85);
+      background:rgba(15,17,23,.85);
       backdrop-filter:blur(10px);
       padding:24px;
       min-height:110px;
@@ -293,8 +208,8 @@
     }
 
     .hero-grid-box .num{
-      color:var(--accent);
-      font-family:'JetBrains Mono', monospace;
+      color:var(--primary-yellow-2);
+      font-family:'JetBrains Mono',monospace;
       font-size:12px;
     }
 
@@ -304,110 +219,37 @@
       font-weight:800;
     }
 
-    .trust-bar{
-      background:#fff;
-      color:#111;
+    .section{
+      padding:96px 0;
+    }
+
+    .section-dark{
+      background:var(--bg);
+      color:var(--text);
+      border-top:1px solid var(--line);
+    }
+
+    .section-light{
+      background:var(--light);
+      color:var(--light-text);
       border-top:1px solid rgba(0,0,0,.08);
       border-bottom:1px solid rgba(0,0,0,.08);
-      padding:34px 0;
-      overflow:hidden;
     }
 
-    .trust-top{
+    .section-head{
       display:flex;
+      align-items:end;
       justify-content:space-between;
-      gap:20px;
+      gap:24px;
       flex-wrap:wrap;
-      margin-bottom:20px;
+      margin-bottom:48px;
     }
 
-    .marquee{
-      overflow:hidden;
-      position:relative;
-    }
-
-    .marquee-track{
-      display:flex;
-      gap:64px;
-      width:max-content;
-      animation:scroll-marquee 28s linear infinite;
-      padding-right:64px;
-    }
-
-    .marquee-item{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      flex-shrink:0;
-      white-space:nowrap;
-      font-size:1.7rem;
+    .section-title{
+      font-size:clamp(2.4rem, 6vw, 5.6rem);
       font-weight:900;
-      letter-spacing:-.04em;
-    }
-
-    .marquee-mark{
-      width:24px;
-      height:24px;
-      background:linear-gradient(135deg, var(--primary), var(--accent));
-      clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
-    }
-
-    .marquee-fade-left,
-    .marquee-fade-right{
-      position:absolute;
-      top:0;
-      bottom:0;
-      width:96px;
-      pointer-events:none;
-      z-index:2;
-    }
-
-    .marquee-fade-left{
-      left:0;
-      background:linear-gradient(to right, #fff, transparent);
-    }
-
-    .marquee-fade-right{
-      right:0;
-      background:linear-gradient(to left, #fff, transparent);
-    }
-
-    @keyframes scroll-marquee{
-      from{transform:translateX(0);}
-      to{transform:translateX(-50%);}
-    }
-
-    .stats-grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:32px;
-    }
-
-    .stat{
-      border-left:2px solid var(--primary);
-      padding-left:24px;
-    }
-
-    .stat-number{
-      font-size:clamp(3rem, 6vw, 4.8rem);
-      font-weight:900;
-      letter-spacing:-.06em;
-      line-height:.9;
-      color:#1a1412;
-    }
-
-    .stat-title{
-      margin-top:12px;
-      font-weight:700;
-    }
-
-    .stat-meta{
-      margin-top:6px;
-      font-family:'JetBrains Mono', monospace;
-      text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:11px;
-      color:#7c6d5f;
+      line-height:.95;
+      letter-spacing:-.05em;
     }
 
     .services-grid{
@@ -418,7 +260,7 @@
 
     .service-card{
       position:relative;
-      min-height:380px;
+      min-height:390px;
       overflow:hidden;
       background:var(--card);
       box-shadow:var(--shadow);
@@ -439,20 +281,22 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      opacity:.58;
+      opacity:.62;
       transition:transform .7s ease, opacity .7s ease;
     }
 
     .service-card:hover img{
       transform:scale(1.05);
-      opacity:.8;
+      opacity:.84;
     }
 
     .service-card::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(15,11,11,.95), rgba(15,11,11,.66), transparent);
+      background:
+        linear-gradient(to top, rgba(15,17,23,.95), rgba(15,17,23,.58), transparent),
+        linear-gradient(135deg, rgba(183,28,28,.14), rgba(212,160,23,.10), rgba(31,78,121,.12));
     }
 
     .service-content{
@@ -461,21 +305,8 @@
       height:100%;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
+      justify-content:flex-end;
       padding:24px;
-    }
-
-    .service-top{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-    }
-
-    .service-dot{
-      width:8px;
-      height:8px;
-      border-radius:999px;
-      background:var(--accent);
     }
 
     .service-title{
@@ -484,34 +315,41 @@
       letter-spacing:-.04em;
     }
 
-    .service-text{
-      margin-top:8px;
-      font-size:14px;
-      color:var(--muted);
-      max-width:42ch;
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:32px;
     }
 
-    .service-metrics{
-      margin-top:18px;
-      display:flex;
-      gap:24px;
-      padding-top:16px;
-      border-top:1px solid rgba(255,255,255,.1);
-      flex-wrap:wrap;
+    .stat{
+      border-left:3px solid var(--primary-red);
+      padding-left:24px;
     }
 
-    .metric-num{
-      color:var(--accent);
-      font-size:1.55rem;
+    .stat:nth-child(2){border-left-color:var(--primary-yellow);}
+    .stat:nth-child(3){border-left-color:var(--primary-blue);}
+    .stat:nth-child(4){border-left-color:var(--primary-red-2);}
+
+    .stat-number{
+      font-size:clamp(3rem, 6vw, 4.8rem);
       font-weight:900;
+      letter-spacing:-.06em;
+      line-height:.9;
+      color:#18120f;
     }
 
-    .metric-label{
-      font-size:10px;
+    .stat-title{
+      margin-top:12px;
+      font-weight:700;
+    }
+
+    .stat-meta{
+      margin-top:6px;
       font-family:'JetBrains Mono', monospace;
       text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--muted);
+      letter-spacing:.14em;
+      font-size:11px;
+      color:#7c6d5f;
     }
 
     .motion-grid{
@@ -537,7 +375,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(15,11,11,.92), transparent);
+      background:linear-gradient(to top, rgba(15,17,23,.92), transparent);
     }
 
     .motion-content{
@@ -547,33 +385,13 @@
       padding:24px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
-    }
-
-    .motion-top{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-    }
-
-    .rec{
-      font-family:'JetBrains Mono', monospace;
-      font-size:12px;
-      background:rgba(15,11,11,.78);
-      backdrop-filter:blur(10px);
-      padding:6px 10px;
-    }
-
-    .motion-index{
-      font-family:'JetBrains Mono', monospace;
-      font-size:12px;
-      color:var(--accent);
+      justify-content:flex-end;
     }
 
     .motion-title{
-      font-size:1.4rem;
+      font-size:clamp(2.2rem, 5vw, 4.2rem);
       font-weight:900;
-      letter-spacing:-.03em;
+      letter-spacing:-.04em;
     }
 
     .portfolio-grid{
@@ -596,9 +414,7 @@
       transition:transform .7s ease;
     }
 
-    .portfolio-card:hover img{
-      transform:scale(1.05);
-    }
+    .portfolio-card:hover img{transform:scale(1.05);}
 
     .portfolio-card::after{
       content:"";
@@ -630,15 +446,14 @@
       padding:6px 10px;
       background:rgba(255,245,214,.95);
       color:#111;
-      font-family:'JetBrains Mono', monospace;
+      font-family:'JetBrains Mono',monospace;
       font-size:12px;
-      text-transform:none;
     }
 
     .portfolio-year,
     .portfolio-size{
-      color:var(--accent);
-      font-family:'JetBrains Mono', monospace;
+      color:var(--primary-yellow-2);
+      font-family:'JetBrains Mono',monospace;
       font-size:12px;
     }
 
@@ -647,6 +462,13 @@
       font-size:1.7rem;
       font-weight:900;
       letter-spacing:-.04em;
+    }
+
+    .process-light{
+      background:var(--light);
+      color:var(--light-text);
+      border-top:1px solid rgba(0,0,0,.08);
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
 
     .process-grid{
@@ -664,11 +486,11 @@
       display:grid;
       grid-template-columns:repeat(2, 1fr);
       gap:1px;
-      background:rgba(224,177,0,.12);
+      background:rgba(31,78,121,.12);
     }
 
     .process-card{
-      background:var(--bg);
+      background:#fff;
       min-height:220px;
       padding:32px;
       display:flex;
@@ -680,7 +502,7 @@
       font-size:4rem;
       font-weight:900;
       letter-spacing:-.05em;
-      color:rgba(224,177,0,.28);
+      color:rgba(31,78,121,.22);
       line-height:.9;
     }
 
@@ -692,11 +514,18 @@
     .process-text{
       margin-top:8px;
       font-size:14px;
-      color:var(--muted);
+      color:#6f655a;
+    }
+
+    .process-main-title{
+      font-size:clamp(2rem,4vw,3.5rem);
+      font-weight:900;
+      line-height:1;
+      letter-spacing:-.04em;
     }
 
     .contact{
-      background:linear-gradient(135deg, var(--primary), #7f1212 55%, var(--accent));
+      background:linear-gradient(135deg,var(--primary-red),var(--primary-blue) 48%,var(--primary-yellow));
       color:#fff;
       border-top:1px solid rgba(255,255,255,.12);
     }
@@ -728,7 +557,7 @@
     }
 
     .contact-label{
-      font-family:'JetBrains Mono', monospace;
+      font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
       letter-spacing:.15em;
       font-size:12px;
@@ -757,7 +586,7 @@
 
     footer{
       background:var(--bg);
-      border-top:1px solid rgba(224,177,0,.14);
+      border-top:1px solid rgba(240,198,74,.14);
     }
 
     .footer-wrap{
@@ -767,7 +596,7 @@
       gap:20px;
       flex-wrap:wrap;
       color:var(--muted);
-      font-family:'JetBrains Mono', monospace;
+      font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
       letter-spacing:.14em;
       font-size:12px;
@@ -805,9 +634,7 @@
     }
 
     @media (max-width: 820px){
-      nav{
-        display:none;
-      }
+      nav{display:none;}
 
       .hero-grid-boxes,
       .stats-grid,
@@ -888,62 +715,72 @@
 
       <div class="hero-grid-boxes">
         <div class="hero-grid-box">
-          <div class="num">/01</div>
+          <div class="num">01</div>
           <div class="label">Construcción</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">/02</div>
+          <div class="num">02</div>
           <div class="label">Remodelación</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">/03</div>
+          <div class="num">03</div>
           <div class="label">Electricidad</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">/04</div>
-          <div class="label">Aire Acond.</div>
+          <div class="num">04</div>
+          <div class="label">AC</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">/05</div>
+          <div class="num">05</div>
           <div class="label">Jardinería</div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="trust-bar">
+  <section id="servicios" class="section section-dark">
     <div class="container">
-      <div class="trust-top">
-        <div class="mono muted-kicker">/ Confían en nosotros</div>
-        <div class="mono muted-kicker">120+ clientes activos</div>
+      <div class="section-head">
+        <div>
+          <h2 class="section-title">Cinco disciplinas.<br>Un solo equipo.</h2>
+        </div>
       </div>
 
-      <div class="marquee">
-        <div class="marquee-track">
-          <div class="marquee-item"><div class="marquee-mark"></div><span>GRUPO ANDES</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>CONSORCIO DELTA</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>HABITAT+</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>URBANA</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>TERRAMAR</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>CEMEX PRO</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>VÉRTICE</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>NOVA HOMES</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>PLAZA REAL</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>BOSQUE ALTO</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>GRUPO ANDES</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>CONSORCIO DELTA</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>HABITAT+</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>URBANA</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>TERRAMAR</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>CEMEX PRO</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>VÉRTICE</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>NOVA HOMES</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>PLAZA REAL</span></div>
-          <div class="marquee-item"><div class="marquee-mark"></div><span>BOSQUE ALTO</span></div>
-        </div>
+      <div class="services-grid">
+        <article class="service-card large">
+          <img src="assets/servicio-construccion.jpg" alt="Construcción">
+          <div class="service-content">
+            <h3 class="service-title">Construcción</h3>
+          </div>
+        </article>
 
-        <div class="marquee-fade-left"></div>
-        <div class="marquee-fade-right"></div>
+        <article class="service-card span-2">
+          <img src="assets/servicio-remodelacion.jpg" alt="Remodelación">
+          <div class="service-content">
+            <h3 class="service-title">Remodelación</h3>
+          </div>
+        </article>
+
+        <article class="service-card span-2">
+          <img src="assets/servicio-electricidad.jpg" alt="Electricidad">
+          <div class="service-content">
+            <h3 class="service-title">Electricidad</h3>
+          </div>
+        </article>
+
+        <article class="service-card span-2">
+          <img src="assets/servicio-ac.jpg" alt="AC">
+          <div class="service-content">
+            <h3 class="service-title">AC</h3>
+          </div>
+        </article>
+
+        <article class="service-card span-2">
+          <img src="assets/servicio-jardineria.jpg" alt="Jardinería">
+          <div class="service-content">
+            <h3 class="service-title">Jardinería</h3>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -958,149 +795,28 @@
 
       <div class="stats-grid">
         <div class="stat">
-          <div class="stat-number">320+</div>
+          <div class="stat-number" data-count="320">0</div>
           <div class="stat-title">Proyectos entregados</div>
           <div class="stat-meta">2011–2026</div>
         </div>
 
         <div class="stat">
-          <div class="stat-number">15</div>
+          <div class="stat-number" data-count="15">0</div>
           <div class="stat-title">Años operando</div>
           <div class="stat-meta">Sin interrupción</div>
         </div>
 
         <div class="stat">
-          <div class="stat-number">94%</div>
+          <div class="stat-number" data-count="94">0</div>
           <div class="stat-title">Entregas a tiempo</div>
           <div class="stat-meta">Últimos 3 años</div>
         </div>
 
         <div class="stat">
-          <div class="stat-number">120+</div>
+          <div class="stat-number" data-count="120">0</div>
           <div class="stat-title">Clientes activos</div>
           <div class="stat-meta">Soporte 24/7</div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="servicios" class="section section-dark">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <div class="mono section-kicker">/ Servicios</div>
-          <h2 class="section-title">Cinco disciplinas.<br>Un solo equipo.</h2>
-        </div>
-      </div>
-
-      <div class="services-grid">
-        <article class="service-card large">
-          <img src="assets/construccion-D4j7fkx6.jpg" alt="Construcción">
-          <div class="service-content">
-            <div class="service-top">
-              <span class="mono" style="color:var(--accent)">/01</span>
-              <span class="service-dot"></span>
-            </div>
-            <div>
-              <h3 class="service-title">Construcción</h3>
-              <p class="service-text">Obra civil, estructura y ampliaciones llave en mano.</p>
-              <div class="service-metrics">
-                <div>
-                  <div class="metric-num">180K+</div>
-                  <div class="metric-label">m²</div>
-                </div>
-                <div>
-                  <div class="metric-num">320</div>
-                  <div class="metric-label">obras</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="service-card span-2">
-          <img src="assets/project2-B4LPRg4v.jpg" alt="Remodelación">
-          <div class="service-content">
-            <div class="service-top">
-              <span class="mono" style="color:var(--accent)">/02</span>
-              <span class="service-dot"></span>
-            </div>
-            <div>
-              <h3 class="service-title">Remodelación</h3>
-              <p class="service-text">Reformas integrales, interiores y adecuaciones.</p>
-              <div class="service-metrics">
-                <div>
-                  <div class="metric-num">210</div>
-                  <div class="metric-label">proyectos</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="service-card span-2">
-          <img src="assets/electricidad-CaheN_qc.jpg" alt="Electricidad">
-          <div class="service-content">
-            <div class="service-top">
-              <span class="mono" style="color:var(--accent)">/03</span>
-              <span class="service-dot"></span>
-            </div>
-            <div>
-              <h3 class="service-title">Electricidad</h3>
-              <p class="service-text">Instalaciones certificadas y tableros de control.</p>
-              <div class="service-metrics">
-                <div>
-                  <div class="metric-num">12M+</div>
-                  <div class="metric-label">kW</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="service-card span-2">
-          <img src="assets/aire-D9hAVNIu.jpg" alt="Aire Acondicionado">
-          <div class="service-content">
-            <div class="service-top">
-              <span class="mono" style="color:var(--accent)">/04</span>
-              <span class="service-dot"></span>
-            </div>
-            <div>
-              <h3 class="service-title">Aire Acondicionado</h3>
-              <p class="service-text">Split, VRF y ductería industrial.</p>
-              <div class="service-metrics">
-                <div>
-                  <div class="metric-num">8M+</div>
-                  <div class="metric-label">BTU</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="service-card span-2">
-          <img src="assets/jardineria-DNTa4rQs.jpg" alt="Jardinería">
-          <div class="service-content">
-            <div class="service-top">
-              <span class="mono" style="color:var(--accent)">/05</span>
-              <span class="service-dot"></span>
-            </div>
-            <div>
-              <h3 class="service-title">Jardinería</h3>
-              <p class="service-text">Diseño paisajístico y mantenimiento.</p>
-              <div class="service-metrics">
-                <div>
-                  <div class="metric-num">45K+</div>
-                  <div class="metric-label">m²</div>
-                </div>
-                <div>
-                  <div class="metric-num">120</div>
-                  <div class="metric-label">clientes</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -1109,8 +825,7 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="mono section-kicker">/ En movimiento</div>
-          <h2 class="section-title">Obra viva.</h2>
+          <h2 class="section-title">Nuestro trabajo</h2>
         </div>
       </div>
 
@@ -1118,33 +833,21 @@
         <div class="motion-card">
           <video src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" autoplay muted loop playsinline></video>
           <div class="motion-content">
-            <div class="motion-top">
-              <span class="rec">REC ●</span>
-              <span class="motion-index">01/03</span>
-            </div>
-            <div class="motion-title">Obra en curso</div>
+            <div class="motion-title">Nuestro trabajo</div>
           </div>
         </div>
 
         <div class="motion-card">
           <video src="https://videos.pexels.com/video-files/4488762/4488762-uhd_2732_1440_25fps.mp4" autoplay muted loop playsinline></video>
           <div class="motion-content">
-            <div class="motion-top">
-              <span class="rec">REC ●</span>
-              <span class="motion-index">02/03</span>
-            </div>
-            <div class="motion-title">Vista aérea</div>
+            <div class="motion-title">Nuestro trabajo</div>
           </div>
         </div>
 
         <div class="motion-card">
           <video src="https://videos.pexels.com/video-files/2249402/2249402-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video>
           <div class="motion-content">
-            <div class="motion-top">
-              <span class="rec">REC ●</span>
-              <span class="motion-index">03/03</span>
-            </div>
-            <div class="motion-title">Detalle técnico</div>
+            <div class="motion-title">Nuestro trabajo</div>
           </div>
         </div>
       </div>
@@ -1155,7 +858,6 @@
     <div class="container">
       <div class="section-head" style="margin-bottom:48px;">
         <div>
-          <div class="mono section-kicker">/ Portafolio</div>
           <h2 class="section-title">Obra reciente.</h2>
         </div>
       </div>
@@ -1206,12 +908,11 @@
     </div>
   </section>
 
-  <section id="proceso" class="section section-dark">
+  <section id="proceso" class="section process-light">
     <div class="container">
       <div class="process-grid">
         <div class="process-copy">
-          <div class="mono section-kicker">/ Proceso</div>
-          <h2 class="section-title">Cómo trabajamos.</h2>
+          <h2 class="process-main-title">Cómo trabajamos</h2>
         </div>
 
         <div class="process-cards">
@@ -1255,24 +956,23 @@
     <div class="container">
       <div class="contact-grid">
         <div>
-          <div class="mono" style="opacity:.75; margin-bottom:16px;">/ Contacto</div>
           <h2 class="contact-title">Tu próxima obra<br>empieza aquí.</h2>
         </div>
 
         <div class="contact-list">
-          <a href="tel:+000000000" class="contact-item">
+          <a href="tel:+50499752125" class="contact-item">
             <div class="contact-label">Teléfono</div>
-            <div class="contact-value">+00 000 000 000 →</div>
+            <div class="contact-value">+504 9975-2125 →</div>
           </a>
 
-          <a href="mailto:hola@nucleo.co" class="contact-item">
+          <a href="mailto:servicioselectricoscanales@gmail.com" class="contact-item">
             <div class="contact-label">Email</div>
-            <div class="contact-value">hola@nucleo.co →</div>
+            <div class="contact-value">servicioselectricoscanales@gmail.com →</div>
           </a>
 
           <div class="office">
             <div class="contact-label">Oficina</div>
-            <div class="contact-value">Av. Principal 1234 · Lun–Vie 8:00–18:00</div>
+            <div class="contact-value">Atención directa para proyectos de construcción, electricidad, AC y jardinería.</div>
           </div>
         </div>
       </div>
@@ -1285,6 +985,46 @@
       <div>Todos los derechos reservados</div>
     </div>
   </footer>
+
+  <script>
+    const counters = document.querySelectorAll('[data-count]');
+
+    const animateCounter = (el) => {
+      const target = Number(el.dataset.count);
+      const suffix = target === 94 ? '%' : '+';
+      const duration = 1800;
+      const start = performance.now();
+
+      const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = Math.floor(eased * target);
+
+        if (target === 15) {
+          el.textContent = value;
+        } else if (target === 94) {
+          el.textContent = value + '%';
+        } else {
+          el.textContent = value + '+';
+        }
+
+        if (progress < 1) requestAnimationFrame(update);
+      };
+
+      requestAnimationFrame(update);
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.45 });
+
+    counters.forEach(counter => observer.observe(counter));
+  </script>
 
 </body>
 </html>

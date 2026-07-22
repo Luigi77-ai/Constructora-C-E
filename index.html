@@ -26,7 +26,7 @@
       --red-dark:#8f1717;
       --yellow:#d8a81d;
       --yellow-soft:#efc64f;
-      --light:#f8f4ed;
+      --light:#ffffff;
       --light-text:#181311;
       --shadow:0 18px 50px rgba(0,0,0,.22);
       --container:1600px;
@@ -186,8 +186,7 @@
     .hero-top{padding-bottom:40px;}
 
     .hero h1{
-      font-size:clamp(3.2rem, 10vw, 10rem);
-      line-height:.85;
+      font-size:clamp(2.4rem, 6vw, 6rem);      line-height:.85;
       letter-spacing:-.08em;
       font-weight:900;
       max-width:10ch;
@@ -262,94 +261,105 @@
     }
 
     .about-section{
-      background:linear-gradient(180deg, #18120f 0%, #211916 100%);
-      border-top:1px solid rgba(255,255,255,.06);
-      border-bottom:1px solid rgba(255,255,255,.06);
+      background:#fff;
+      color:var(--light-text);
+      border-top:1px solid rgba(0,0,0,.08);
+      border-bottom:1px solid rgba(0,0,0,.08);
     }
 
-    .about-grid{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:24px;
-      align-items:stretch;
+    .about-header{
+      max-width:680px;
+      margin:0 auto 56px;
+      text-align:center;
     }
 
-    .about-copy{
-      padding-right:24px;
+    .about-heading{
+      font-size:clamp(2rem,5vw,3.2rem);
+      font-weight:900;
+      letter-spacing:-.03em;
+      line-height:1.08;
+      color:var(--light-text);
     }
 
-    .about-copy .section-title{
-      margin-bottom:18px;
-    }
-
-    .about-text{
-      max-width:58ch;
+    .about-sub{
+      margin-top:18px;
       font-size:1.05rem;
-      color:var(--muted);
+      color:#6f655a;
+      max-width:56ch;
+      margin-inline:auto;
     }
 
-    .about-text + .about-text{
-      margin-top:14px;
+    .about-header .btn{
+      margin-top:28px;
     }
 
-    .about-media{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:12px;
-      min-height:560px;
+    .about-fan{
+      display:flex;
+      justify-content:center;
+      align-items:flex-end;
+      margin:0 0 64px;
     }
 
-    .about-main,
-    .about-stack-item{
-      position:relative;
+    .about-fan-item{
+      width:120px;
+      height:160px;
+      border-radius:20px;
       overflow:hidden;
-      border-radius:var(--radius-lg);
       box-shadow:var(--shadow);
-      background:#0d0a09;
+      flex-shrink:0;
+      background:#eee;
     }
 
-    .about-main video,
-    .about-stack-item img,
-    .about-stack-item video{
+    .about-fan-item + .about-fan-item{
+      margin-left:-22px;
+    }
+
+    .about-fan-item img{
       width:100%;
       height:100%;
       object-fit:cover;
+      display:block;
     }
 
-    .about-main::after,
-    .about-stack-item::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(12,9,8,.68), rgba(12,9,8,.08), transparent);
-    }
+    .about-fan-item:nth-child(1){ transform:rotate(-16deg) translateY(26px); z-index:1; }
+    .about-fan-item:nth-child(2){ transform:rotate(-9deg) translateY(12px); z-index:2; }
+    .about-fan-item:nth-child(3){ transform:rotate(-3deg) translateY(2px); z-index:3; }
+    .about-fan-item:nth-child(4){ transform:translateY(-12px); z-index:4; width:150px; height:200px; }
+    .about-fan-item:nth-child(5){ transform:rotate(3deg) translateY(2px); z-index:3; }
+    .about-fan-item:nth-child(6){ transform:rotate(9deg) translateY(12px); z-index:2; }
+    .about-fan-item:nth-child(7){ transform:rotate(16deg) translateY(26px); z-index:1; }
 
-    .about-stack{
+    .about-columns{
       display:grid;
-      grid-template-rows:1fr 1fr;
-      gap:12px;
+      grid-template-columns:repeat(3, 1fr);
+      gap:32px;
+      max-width:1100px;
+      margin-inline:auto;
     }
 
-    .about-badge{
-      position:absolute;
-      left:18px;
-      bottom:18px;
-      z-index:2;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.14);
-      backdrop-filter:blur(10px);
-      border-radius:999px;
-      font-family:'JetBrains Mono',monospace;
-      font-size:11px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
+    .about-col{
+      padding-left:20px;
+      border-left:1px solid rgba(0,0,0,.1);
     }
 
-    .brand-strip{
+    .about-col:first-child{
+      border-left:none;
+      padding-left:0;
+    }
+
+    .about-col h3{
+      font-size:1.05rem;
+      font-weight:800;
+      margin-bottom:8px;
+    }
+
+    .about-col p{
+      font-size:.92rem;
+      color:#6f655a;
+      line-height:1.55;
+    }
+
+    brand-strip{
       padding:28px 0;
       background:linear-gradient(180deg, #18120f 0%, #211916 100%);
       border-top:1px solid rgba(255,255,255,.06);
@@ -492,21 +502,30 @@
 
     .stats-section .section-head{
       margin-bottom:32px;
+      justify-content:center;
+      text-align:center;
     }
 
     .stats-section .section-title{
-      font-size:clamp(1.9rem, 4vw, 3rem);
+      font-size:clamp(1.5rem, 2.6vw, 2rem);
     }
 
     .stats-grid{
       display:grid;
       grid-template-columns:repeat(4, 1fr);
       gap:24px;
+      text-align:center;
+      justify-items:center;
+      max-width:900px;
+      margin-inline:auto;
     }
 
     .stat{
-      border-left:3px solid var(--red);
-      padding-left:18px;
+      border-left:none;
+      border-top:3px solid var(--red);
+      padding-left:0;
+      padding-top:14px;
+      max-width:200px;
     }
 
     .stat-number{
@@ -532,10 +551,21 @@
       color:#7c6d5f;
     }
 
-    .motion-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
+    .motion-marquee{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .motion-track{
+      display:flex;
       gap:12px;
+      width:max-content;
+      animation:motionScroll 36s linear infinite;
+    }
+
+    .motion-track .motion-card{
+      width:300px;
+      flex:none;
     }
 
     .motion-card{
@@ -557,6 +587,31 @@
       position:absolute;
       inset:0;
       background:linear-gradient(to top, rgba(20,16,15,.76), transparent);
+    }
+
+    .motion-fade-left,
+    .motion-fade-right{
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:96px;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .motion-fade-left{
+      left:0;
+      background:linear-gradient(to right, var(--bg), transparent);
+    }
+
+    .motion-fade-right{
+      right:0;
+      background:linear-gradient(to left, var(--bg), transparent);
+    }
+
+    @keyframes motionScroll{
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
     }
 
     .portfolio-grid{
@@ -639,34 +694,38 @@
     }
 
     .process-grid{
-      display:grid;
-      grid-template-columns:repeat(12, 1fr);
-      gap:48px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:36px;
     }
 
     .process-copy{
-      grid-column:span 4;
+      text-align:center;
     }
 
     .process-cards{
-      grid-column:span 8;
+      width:100%;
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:repeat(4, 1fr);
       gap:1px;
       background:rgba(184,32,32,.10);
     }
 
     .process-card{
       background:#fff;
-      min-height:220px;
-      padding:32px;
+      min-height:170px;
+      padding:22px 16px;
       display:flex;
       flex-direction:column;
-      justify-content:space-between;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      gap:6px;
     }
 
     .process-num{
-      font-size:4rem;
+      font-size:2.1rem;
       font-weight:900;
       letter-spacing:-.05em;
       color:var(--red);
@@ -674,18 +733,18 @@
     }
 
     .process-title{
-      font-size:2rem;
+      font-size:1.1rem;
       font-weight:900;
     }
 
     .process-text{
-      margin-top:8px;
-      font-size:14px;
+      margin-top:4px;
+      font-size:12.5px;
       color:#6f655a;
     }
 
     .process-main-title{
-      font-size:clamp(1.9rem,3.5vw,3rem);
+      font-size:clamp(1.6rem,2.8vw,2.2rem);
       font-weight:900;
       line-height:1;
       letter-spacing:-.04em;
@@ -761,11 +820,24 @@
       line-height:1.45;
     }
 
+    .contact-value--email{
+      font-size:clamp(.72rem, 1.3vw, .92rem);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:100%;
+      display:block;
+    }
+
     .contact-form-section{
       background:#fff;
       color:var(--light-text);
       border-top:1px solid rgba(0,0,0,.08);
       border-bottom:1px solid rgba(0,0,0,.08);
+    }
+
+    #formulario-contacto{
+      display:none;
     }
 
     .contact-form-wrap{
@@ -909,16 +981,18 @@
       .hero-grid-boxes,
       .stats-grid,
       .services-grid,
-      .motion-grid,
       .portfolio-grid,
       .process-cards,
-      .contact-list,
-      .about-media{
+      .contact-list{
         grid-template-columns:1fr;
       }
 
-      .about-stack{
-        grid-template-rows:auto;
+      .about-fan{
+        flex-wrap:wrap;
+      }
+
+      .about-columns{
+        grid-template-columns:1fr;
       }
 
       .service-card.large,
@@ -973,8 +1047,7 @@
       <nav>
         <a href="#acerca">Acerca</a>
         <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#proceso">Proceso</a>
+        <a href="#blog">Blog</a>        <a href="#proceso">Proceso</a>
         <a href="#contacto">Contacto</a>
       </nav>
 
@@ -1025,44 +1098,38 @@
 
   <section id="acerca" class="section about-section">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-copy">
-          <h2 class="section-title">Acerca de nosotros</h2>
-          <p class="about-text">
-            En NÚCLEO integramos construcción, remodelación, electricidad, AC y jardinería bajo una misma coordinación técnica para que cada proyecto avance con orden, claridad y tiempos definidos.
-          </p>
-          <p class="about-text">
-            Nuestro enfoque combina ejecución en campo, supervisión directa y atención cercana para entregar espacios funcionales, limpios y bien resueltos de principio a fin.
-          </p>
-          <p class="about-text">
-            Esta sección está diseñada para que coloques videos y fotos reales de la empresa con una composición visual parecida a la referencia que mencionaste.
-          </p>
+      <div class="about-header">
+        <h2 class="about-heading">Un equipo completo<br>para tu proxima obra</h2>
+        <p class="about-sub">En NUCLEO integramos construccion, remodelacion, electricidad, AC y jardineria bajo una misma coordinacion tecnica, con cuadrilla propia y atencion cercana de principio a fin.</p>
+        <a href="#contacto" class="btn">Cotizar ahora &#8594;</a>
+      </div>
+
+      <div class="about-fan">
+        <div class="about-fan-item"><img src="assets/servicio-remodelacion.jpg" alt="Remodelacion"></div>
+        <div class="about-fan-item"><img src="assets/about-empresa-1.jpg" alt="Equipo de trabajo"></div>
+        <div class="about-fan-item"><img src="assets/servicio-electricidad.jpg" alt="Electricidad"></div>
+        <div class="about-fan-item"><img src="assets/about-empresa-2.jpg" alt="Proyecto ejecutado"></div>
+        <div class="about-fan-item"><img src="assets/servicio-ac.jpg" alt="AC"></div>
+        <div class="about-fan-item"><img src="assets/servicio-jardineria.jpg" alt="Jardineria"></div>
+        <div class="about-fan-item"><img src="assets/servicio-construccion.jpg" alt="Construccion"></div>
+      </div>
+
+      <div class="about-columns">
+        <div class="about-col">
+          <h3>Coordinacion total</h3>
+          <p>Un mismo equipo tecnico supervisa cada etapa, desde el diagnostico hasta la entrega final.</p>
         </div>
-
-        <div class="about-media">
-          <div class="about-main">
-            <video src="Media/12360854_3840_2160_24fps (1).mp4" autoplay muted loop playsinline></video>
-            <div class="about-badge">Equipo en acción</div>
-          </div>
-
-          <div class="about-stack">
-            <div class="about-stack-item">
-              <img src="assets/about-empresa-1.jpg" alt="Equipo de trabajo de la empresa">
-            </div>
-            <div class="about-stack-item">
-              <img src="assets/about-empresa-2.jpg" alt="Proyecto ejecutado por la empresa">
-            </div>
-          </div>
+        <div class="about-col">
+          <h3>Cuadrilla propia</h3>
+          <p>Personal directo y capacitado en cada disciplina, sin subcontrataciones improvisadas.</p>
+        </div>
+        <div class="about-col">
+          <h3>Resultados medibles</h3>
+          <p>Bitacoras semanales, pruebas finales y garantia por escrito en cada proyecto entregado.</p>
         </div>
       </div>
     </div>
-  </section>
-
-  <section class="brand-strip">
-    <div class="container">
-      <div class="brand-intro">Marcas y clientes con los que hemos trabajado</div>
-    </div>
-
+  </section><section class="brand-strip">
     <div class="brand-marquee">
       <div class="brand-track">
         <div class="brand-item"><div class="brand-item-mark"></div><span>GRUPO ANDES</span></div>
@@ -1184,77 +1251,71 @@
         </div>
       </div>
 
-      <div class="motion-grid">
-        <div class="motion-card">
-          <video src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" autoplay muted loop playsinline></video>
+      <div class="motion-marquee">
+        <div class="motion-track">
+          <div class="motion-card"><video src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" autoplay muted loop playsinline></video></div>
+          <div class="motion-card"><video src="https://videos.pexels.com/video-files/4488762/4488762-uhd_2732_1440_25fps.mp4" autoplay muted loop playsinline></video></div>
+          <div class="motion-card"><video src="https://videos.pexels.com/video-files/2249402/2249402-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video></div>
+          <div class="motion-card"><video src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" autoplay muted loop playsinline></video></div>
+          <div class="motion-card"><video src="https://videos.pexels.com/video-files/4488762/4488762-uhd_2732_1440_25fps.mp4" autoplay muted loop playsinline></video></div>
+          <div class="motion-card"><video src="https://videos.pexels.com/video-files/2249402/2249402-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video></div>
         </div>
-
-        <div class="motion-card">
-          <video src="https://videos.pexels.com/video-files/4488762/4488762-uhd_2732_1440_25fps.mp4" autoplay muted loop playsinline></video>
-        </div>
-
-        <div class="motion-card">
-          <video src="https://videos.pexels.com/video-files/2249402/2249402-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video>
-        </div>
+        <div class="motion-fade-left"></div>
+        <div class="motion-fade-right"></div>
       </div>
     </div>
   </section>
 
-  <section id="proyectos" class="section section-light">
+  <section id="blog" class="section section-light">
     <div class="container">
-      <div class="section-head" style="margin-bottom:48px;">
+      <div class="section-head">
         <div>
-          <h2 class="section-title">Obra reciente</h2>
+          <h2 class="section-title">Blog</h2>
         </div>
       </div>
 
       <div class="portfolio-grid">
         <article class="portfolio-card">
-          <img src="assets/project1-JwGBdFVX.jpg" alt="Torre Corporativa Norte">
+          <img src="assets/project1-JwGBdFVX.jpg" alt="Como elegir el sistema electrico ideal">
           <div class="portfolio-content">
             <div class="portfolio-top">
-              <span class="chip">Comercial</span>
-              <span class="portfolio-year">2025</span>
+              <span class="chip">Consejos</span>
+              <span class="portfolio-year">Jul 2026</span>
             </div>
             <div>
-              <div class="portfolio-size">4,200 m²</div>
-              <h3 class="portfolio-title">Torre Corporativa Norte</h3>
+              <h3 class="portfolio-title">Como elegir el sistema electrico ideal para tu hogar</h3>
             </div>
           </div>
         </article>
 
         <article class="portfolio-card">
-          <img src="assets/project2-B4LPRg4v.jpg" alt="Residencia Los Robles">
+          <img src="assets/project2-B4LPRg4v.jpg" alt="Tendencias en remodelacion 2026">
           <div class="portfolio-content">
             <div class="portfolio-top">
-              <span class="chip">Residencial</span>
-              <span class="portfolio-year">2024</span>
+              <span class="chip">Tendencias</span>
+              <span class="portfolio-year">Jun 2026</span>
             </div>
             <div>
-              <div class="portfolio-size">820 m²</div>
-              <h3 class="portfolio-title">Residencia Los Robles</h3>
+              <h3 class="portfolio-title">Tendencias en remodelacion para el 2026</h3>
             </div>
           </div>
         </article>
 
         <article class="portfolio-card">
-          <img src="assets/project3-DA-bAdb_.jpg" alt="Complejo Residencial Vega">
+          <img src="assets/project3-DA-bAdb_.jpg" alt="Mantenimiento de aires acondicionados">
           <div class="portfolio-content">
             <div class="portfolio-top">
-              <span class="chip">Multifamiliar</span>
-              <span class="portfolio-year">2024</span>
+              <span class="chip">Guias</span>
+              <span class="portfolio-year">May 2026</span>
             </div>
             <div>
-              <div class="portfolio-size">12,600 m²</div>
-              <h3 class="portfolio-title">Complejo Residencial Vega</h3>
+              <h3 class="portfolio-title">Mantenimiento de aires acondicionados: guia rapida</h3>
             </div>
           </div>
         </article>
       </div>
     </div>
-  </section>
-
-  <section id="proceso" class="section process-light">
+  </section><section id="proceso" class="section process-light">
     <div class="container">
       <div class="process-grid">
         <div class="process-copy">
@@ -1312,12 +1373,12 @@
 
             <a href="mailto:servicioselectricoscanales@gmail.com" class="contact-item">
               <div class="contact-label">Email</div>
-              <div class="contact-value">servicioselectricoscanales@gmail.com →</div>
+              <div class="contact-value contact-value--email">servicioselectricoscanales@gmail.com &#8594;</div>
             </a>
 
             <div class="contact-static">
               <div class="contact-label">Oficina</div>
-              <div class="contact-value">Atención directa para proyectos de construcción, electricidad, AC y jardinería</div>
+              <div class="contact-value">La Lima, colonia Usula, calle principal</div>
             </div>
           </div>
 
@@ -1411,6 +1472,21 @@
     }, { threshold: 0.45 });
 
     counters.forEach(counter => observer.observe(counter));
+  </script>
+
+
+  <script>
+    (function(){
+      var formSection = document.getElementById('formulario-contacto');
+      if(!formSection) return;
+      document.querySelectorAll('a[href="#formulario-contacto"]').forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          formSection.style.display = 'block';
+          formSection.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      });
+    })();
   </script>
 
 </body>

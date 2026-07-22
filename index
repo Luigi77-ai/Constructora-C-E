@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>NÚCLEO — Construcción, Electricidad, Clima y Jardinería</title>
+  <meta name="description" content="Constructora integral. Obra, instalaciones eléctricas, aire acondicionado y paisajismo bajo un solo estándar." />
+
+  <meta property="og:title" content="NÚCLEO — Constructora integral" />
+  <meta property="og:description" content="Obra, eléctricos, HVAC y jardinería. Un solo equipo, cuatro disciplinas." />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NÚCLEO — Constructora integral" />
+  <meta name="twitter:description" content="Obra, eléctricos, HVAC y jardinería. Un solo equipo, cuatro disciplinas." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#0c0d0f;
+      --bg-soft:#121418;
+      --card:#161a1f;
+      --card-2:#1b2026;
+      --text:#f4f1ea;
+      --muted:#a7afb8;
+      --line:rgba(255,255,255,.08);
+      --line-2:rgba(255,255,255,.14);
+      --primary:#e2852f;
+      --primary-2:#ff9d43;
+      --white:#ffffff;
+      --dark:#0b0b0b;
+      --section-white:#f7f5f1;
+      --section-white-text:#111111;
+      --container:1600px;
+      --shadow:0 16px 50px rgba(0,0,0,.22);
+      --radius:0px;
+      --transition:all .35s ease;
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Archivo', sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img, video{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - 48px));
+      margin-inline:auto;
+    }
+
+    .mono{
+      font-family:'JetBrains Mono', monospace;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      font-size:12px;
+    }
+
+    .section{
+      padding:96px 0;
+    }
+
+    .section-dark{
+      background:var(--bg);
+      color:var(--text);
+      border-top:1px solid var(--line);
+    }
+
+    .section-light{
+      background:var(--section-white);
+      color:var(--section-white-text);
+      border-top:1px solid rgba(0,0,0,.08);
+      border-bottom:1px solid rgba(0,0,0,.08);
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+      margin-bottom:48px;
+    }
+
+    .section-kicker{
+      color:var(--primary);
+      margin-bottom:12px;
+    }
+
+    .section-light .section-kicker,
+    .section-light .muted-kicker{
+      color:#6b7280;
+    }
+
+    .section-title{
+      font-size:clamp(2.4rem, 6vw, 5.6rem);
+      font-weight:900;
+      line-height:.95;
+      letter-spacing:-.05em;
+    }
+
+    .section-note{
+      max-width:340px;
+      font-size:12px;
+      font-family:'JetBrains Mono', monospace;
+      color:var(--muted);
+    }
+
+    .section-light .section-note{
+      color:#6b7280;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:100;
+      backdrop-filter:blur(18px);
+      background:rgba(12,13,15,.72);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav-wrap{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+      padding:18px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .brand-mark{
+      width:24px;
+      height:24px;
+      background:var(--primary);
+      clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
+      flex:0 0 auto;
+    }
+
+    .brand-name{
+      font-size:1.1rem;
+      font-weight:900;
+      letter-spacing:-.03em;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:30px;
+    }
+
+    nav a{
+      font-family:'JetBrains Mono', monospace;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:12px;
+      color:var(--muted);
+      transition:var(--transition);
+    }
+
+    nav a:hover{
+      color:var(--text);
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:44px;
+      padding:14px 18px;
+      background:var(--primary);
+      color:#fff;
+      font-family:'JetBrains Mono', monospace;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:12px;
+      transition:var(--transition);
+    }
+
+    .btn:hover{
+      background:var(--primary-2);
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      position:relative;
+      min-height:100vh;
+      overflow:hidden;
+      padding-top:92px;
+    }
+
+    .hero-bg,
+    .hero-overlay,
+    .hero-grid{
+      position:absolute;
+      inset:0;
+    }
+
+    .hero-bg video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .hero-overlay{
+      background:linear-gradient(to bottom, rgba(12,13,15,.62), rgba(12,13,15,.4), var(--bg));
+    }
+
+    .hero-grid{
+      background-image:
+        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+      background-size:80px 80px;
+    }
+
+    .hero-content{
+      position:relative;
+      padding:80px 0 64px;
+    }
+
+    .hero-kicker{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:28px;
+      color:var(--primary);
+    }
+
+    .hero-kicker-line{
+      width:32px;
+      height:1px;
+      background:var(--primary);
+    }
+
+    .hero h1{
+      font-size:clamp(3.2rem, 10vw, 10rem);
+      line-height:.85;
+      letter-spacing:-.08em;
+      font-weight:900;
+    }
+
+    .hero h1 .accent{
+      color:var(--primary);
+    }
+
+    .hero h1 .muted{
+      color:#808892;
+    }
+
+    .hero-grid-boxes{
+      margin-top:56px;
+      display:grid;
+      grid-template-columns:repeat(5, 1fr);
+      gap:1px;
+      background:var(--line);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-grid-box{
+      background:rgba(12,13,15,.88);
+      backdrop-filter:blur(10px);
+      padding:24px;
+    }
+
+    .hero-grid-box .num{
+      color:var(--primary);
+      font-family:'JetBrains Mono', monospace;
+      font-size:12px;
+    }
+
+    .hero-grid-box .label{
+      margin-top:10px;
+      font-size:1.1rem;
+      font-weight:800;
+    }
+
+    .trust-bar{
+      background:#fff;
+      color:#111;
+      border-top:1px solid rgba(0,0,0,.08);
+      border-bottom:1px solid rgba(0,0,0,.08);
+      padding:34px 0;
+      overflow:hidden;
+    }
+
+    .trust-top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+
+    .marquee{
+      overflow:hidden;
+      position:relative;
+    }
+
+    .marquee-track{
+      display:flex;
+      gap:64px;
+      width:max-content;
+      animation:scroll-marquee 28s linear infinite;
+      padding-right:64px;
+    }
+
+    .marquee-item{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink:0;
+      white-space:nowrap;
+      font-size:1.7rem;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+
+    .marquee-mark{
+      width:24px;
+      height:24px;
+      background:#111;
+      clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
+    }
+
+    .marquee-fade-left,
+    .marquee-fade-right{
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:96px;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .marquee-fade-left{
+      left:0;
+      background:linear-gradient(to right, #fff, transparent);
+    }
+
+    .marquee-fade-right{
+      right:0;
+      background:linear-gradient(to left, #fff, transparent);
+    }
+
+    @keyframes scroll-marquee{
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
+    }
+
+    .stats-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:32px;
+    }
+
+    .stat{
+      border-left:2px solid #111;
+      padding-left:24px;
+    }
+
+    .stat-number{
+      font-size:clamp(3rem, 6vw, 4.8rem);
+      font-weight:900;
+      letter-spacing:-.06em;
+      line-height:.9;
+    }
+
+    .stat-title{
+      margin-top:12px;
+      font-weight:700;
+    }
+
+    .stat-meta{
+      margin-top:6px;
+      font-family:'JetBrains Mono', monospace;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:11px;
+      color:#6b7280;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      gap:12px;
+    }
+
+    .service-card{
+      position:relative;
+      min-height:380px;
+      overflow:hidden;
+      background:var(--card);
+      box-shadow:var(--shadow);
+    }
+
+    .service-card.large{
+      grid-column:span 2;
+      grid-row:span 2;
+    }
+
+    .service-card.span-2{
+      grid-column:span 2;
+    }
+
+    .service-card img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      opacity:.6;
+      transition:transform .7s ease, opacity .7s ease;
+    }
+
+    .service-card:hover img{
+      transform:scale(1.05);
+      opacity:.82;
+    }
+
+    .service-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(12,13,15,.95), rgba(12,13,15,.68), transparent);
+    }
+
+    .service-content{
+      position:relative;
+      z-index:2;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      padding:24px;
+    }
+
+    .service-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+    }
+
+    .service-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:var(--primary);
+    }
+
+    .service-title{
+      font-size:clamp(2rem, 4vw, 2.7rem);
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+
+    .service-text{
+      margin-top:8px;
+      font-size:14px;
+      color:var(--muted);
+      max-width:42ch;
+    }
+
+    .service-metrics{
+      margin-top:18px;
+      display:flex;
+      gap:24px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.1);
+      flex-wrap:wrap;
+    }
+
+    .metric-num{
+      color:var(--primary);
+      font-size:1.55rem;
+      font-weight:900;
+    }
+
+    .metric-label{
+      font-size:10px;
+      font-family:'JetBrains Mono', monospace;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      color:var(--muted);
+    }
+
+    .motion-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
+
+    .motion-card{
+      position:relative;
+      overflow:hidden;
+      aspect-ratio:4/5;
+      background:var(--card);
+    }
+
+    .motion-card video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .motion-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(12,13,15,.92), transparent);
+    }
+
+    .motion-content{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .motion-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .rec{
+      font-family:'JetBrains Mono', monospace;
+      font-size:12px;
+      background:rgba(12,13,15,.78);
+      backdrop-filter:blur(10px);
+      padding:6px 10px;
+    }
+
+    .motion-index{
+      font-family:'JetBrains Mono', monospace;
+      font-size:12px;
+      color:var(--primary);
+    }
+
+    .motion-title{
+      font-size:1.4rem;
+      font-weight:900;
+      letter-spacing:-.03em;
+    }
+
+    .portfolio-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:12px;
+    }
+
+    .portfolio-card{
+      position:relative;
+      overflow:hidden;
+      aspect-ratio:4/5;
+      background:#111;
+    }
+
+    .portfolio-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .7s ease;
+    }
+
+    .portfolio-card:hover img{
+      transform:scale(1.05);
+    }
+
+    .portfolio-card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.2), transparent);
+    }
+
+    .portfolio-content{
+      position:absolute;
+      inset:0;
+      z-index:2;
+      padding:24px;
+      color:#fff;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .portfolio-top{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
+      background:rgba(255,255,255,.92);
+      color:#111;
+      font-family:'JetBrains Mono', monospace;
+      font-size:12px;
+      text-transform:none;
+    }
+
+    .portfolio-year,
+    .portfolio-size{
+      color:var(--primary);
+      font-family:'JetBrains Mono', monospace;
+      font-size:12px;
+    }
+
+    .portfolio-title{
+      margin-top:6px;
+      font-size:1.7rem;
+      font-weight:900;
+      letter-spacing:-.04em;
+    }
+
+    .process-grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:48px;
+    }
+
+    .process-copy{
+      grid-column:span 4;
+    }
+
+    .process-cards{
+      grid-column:span 8;
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:1px;
+      background:var(--line);
+    }
+
+    .process-card{
+      background:var(--bg);
+      min-height:220px;
+      padding:32px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .process-num{
+      font-size:4rem;
+      font-weight:900;
+      letter-spacing:-.05em;
+      color:rgba(226,133,47,.22);
+      line-height:.9;
+    }
+
+    .process-title{
+      font-size:2rem;
+      font-weight:900;
+    }
+
+    .process-text{
+      margin-top:8px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .contact{
+      background:var(--primary);
+      color:#fff;
+      border-top:1px solid rgba(255,255,255,.12);
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(2, 1fr);
+      gap:48px;
+      align-items:end;
+    }
+
+    .contact-title{
+      font-size:clamp(3rem, 8vw, 7rem);
+      line-height:.9;
+      font-weight:900;
+      letter-spacing:-.06em;
+    }
+
+    .contact-list{
+      display:flex;
+      flex-direction:column;
+      gap:24px;
+    }
+
+    .contact-item{
+      display:block;
+      padding-bottom:16px;
+      border-bottom:1px solid rgba(255,255,255,.22);
+    }
+
+    .contact-label{
+      font-family:'JetBrains Mono', monospace;
+      text-transform:uppercase;
+      letter-spacing:.15em;
+      font-size:12px;
+      opacity:.78;
+    }
+
+    .contact-value{
+      margin-top:6px;
+      font-size:clamp(1.5rem, 3vw, 2rem);
+      font-weight:900;
+      transition:var(--transition);
+    }
+
+    .contact-item:hover .contact-value{
+      transform:translateX(8px);
+    }
+
+    .office{
+      padding-top:8px;
+    }
+
+    .office .contact-value{
+      font-size:1.08rem;
+      transform:none !important;
+    }
+
+    footer{
+      background:var(--bg);
+      border-top:1px solid var(--line);
+    }
+
+    .footer-wrap{
+      padding:28px 0;
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-family:'JetBrains Mono', monospace;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:12px;
+    }
+
+    @media (max-width: 1100px){
+      .hero-grid-boxes,
+      .stats-grid,
+      .portfolio-grid,
+      .motion-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .services-grid{
+        grid-template-columns:repeat(2,1fr);
+      }
+
+      .service-card.large,
+      .service-card.span-2{
+        grid-column:span 2;
+      }
+
+      .process-grid{
+        grid-template-columns:1fr;
+      }
+
+      .process-copy,
+      .process-cards{
+        grid-column:auto;
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 820px){
+      nav{
+        display:none;
+      }
+
+      .hero-grid-boxes,
+      .stats-grid,
+      .services-grid,
+      .motion-grid,
+      .portfolio-grid,
+      .process-cards{
+        grid-template-columns:1fr;
+      }
+
+      .service-card.large,
+      .service-card.span-2{
+        grid-column:auto;
+        grid-row:auto;
+      }
+
+      .container{
+        width:min(var(--container), calc(100% - 32px));
+      }
+
+      .section{
+        padding:72px 0;
+      }
+
+      .hero-content{
+        padding:64px 0 48px;
+      }
+
+      .hero-grid-box{
+        padding:20px;
+      }
+
+      .process-card{
+        padding:24px;
+      }
+
+      .stat{
+        padding-left:18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrap">
+      <a href="#top" class="brand">
+        <div class="brand-mark"></div>
+        <span class="brand-name">NÚCLEO</span>
+      </a>
+
+      <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="btn">Cotizar →</a>
+    </div>
+  </header>
+
+  <section id="top" class="hero">
+    <div class="hero-bg">
+      <video src="https://videos.pexels.com/video-files/2887463/2887463-hd_1920_1080_25fps.mp4" autoplay muted loop playsinline></video>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grid"></div>
+
+    <div class="container hero-content">
+      <div class="hero-kicker mono">
+        <span class="hero-kicker-line"></span>
+        <span>Est. 2011 · Constructora Integral</span>
+      </div>
+
+      <h1>
+        CONSTRUIMOS<br>
+        <span class="accent">SISTEMAS</span><br>
+        <span class="muted">COMPLETOS.</span>
+      </h1>
+
+      <div class="hero-grid-boxes">
+        <div class="hero-grid-box">
+          <div class="num">/01</div>
+          <div class="label">Construcción</div>
+        </div>
+        <div class="hero-grid-box">
+          <div class="num">/02</div>
+          <div class="label">Remodelación</div>
+        </div>
+        <div class="hero-grid-box">
+          <div class="num">/03</div>
+          <div class="label">Electricidad</div>
+        </div>
+        <div class="hero-grid-box">
+          <div class="num">/04</div>
+          <div class="label">Aire Acond.</div>
+        </div>
+        <div class="hero-grid-box">
+          <div class="num">/05</div>
+          <div class="label">Jardinería</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="trust-bar">
+    <div class="container">
+      <div class="trust-top">
+        <div class="mono muted-kicker">/ Confían en nosotros</div>
+        <div class="mono muted-kicker">120+ clientes activos</div>
+      </div>
+
+      <div class="marquee">
+        <div class="marquee-track">
+          <div class="marquee-item"><div class="marquee-mark"></div><span>GRUPO ANDES</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>CONSORCIO DELTA</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>HABITAT+</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>URBANA</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>TERRAMAR</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>CEMEX PRO</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>VÉRTICE</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>NOVA HOMES</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>PLAZA REAL</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>BOSQUE ALTO</span></div>
+
+          <div class="marquee-item"><div class="marquee-mark"></div><span>GRUPO ANDES</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>CONSORCIO DELTA</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>HABITAT+</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>URBANA</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>TERRAMAR</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>CEMEX PRO</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>VÉRTICE</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>NOVA HOMES</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>PLAZA REAL</span></div>
+          <div class="marquee-item"><div class="marquee-mark"></div><span>BOSQUE ALTO</span></div>
+        </div>
+
+        <div class="marquee-fade-left"></div>
+        <div class="marquee-fade-right"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="mono section-kicker">/ Cifras</div>
+          <h2 class="section-title">15 años. Números que respaldan.</h2>
+        </div>
+        <div class="section-note">[ Datos acumulados desde el inicio de operaciones. ]</div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="stat-number">320+</div>
+          <div class="stat-title">Proyectos entregados</div>
+          <div class="stat-meta">2011–2026</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">15</div>
+          <div class="stat-title">Años operando</div>
+          <div class="stat-meta">Sin interrupción</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">94%</div>
+          <div class="stat-title">Entregas a tiempo</div>
+          <div class="stat-meta">Últimos 3 años</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-number">120+</div>
+          <div class="stat-title">Clientes activos</div>
+          <div class="stat-meta">Soporte 24/7</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios" class="section section-dark">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="mono section-kicker">/ Servicios</div>
+          <h2 class="section-title">Cinco disciplinas.<br>Un solo equipo.</h2>
+        </div>
+        <div class="section-note">[ Un contratista único elimina fricción, tiempos muertos y responsabilidades cruzadas. ]</div>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card large">
+          <img src="assets/construccion-D4j7fkx6.jpg" alt="Construcción">
+          <div class="service-content">
+            <div class="service-top">
+              <span class="mono" style="color:var(--primary)">/01</span>
+              <span class="service-dot"></span>
+            </div>
+            <div>
+              <h3 class="service-title">Construcción</h3>
+              <p class="service-text">Obra civil, estructura y ampliaciones llave en mano.</p>
+              <div class="service-metrics">
+                <div>
+                  <div class="metric-num">180K+</div>
+                  <div class="metric-label">m²</div>
+                </div>
+                <div>
+                  <div class="metric-num">320</div>
+                  <div class="metric-label">obras</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card span-2">
+          <img src="assets/project2-B4LPRg4v.jpg" alt="Remodelación">
+          <div class="service-content">
+            <div class="service-top">
+              <span class="mono" style="color:var(--primary)">/02</span>
+              <span class="service-dot"></span>
+            </div>
+            <div>
+              <h3 class="service-title">Remodelación</h3>
+              <p class="service-text">Reformas integrales, interiores y adecuaciones.</p>
+              <div class="service-metrics">
+                <div>
+                  <div class="metric-num">210</div>
+                  <div class="metric-label">proyectos</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card span-2">
+          <img src="assets/electricidad-CaheN_qc.jpg" alt="Electricidad">
+          <div class="service-content">
+            <div class="service-top">
+              <span class="mono" style="color:var(--primary)">/03</span>
+              <span class="service-dot"></span>
+            </div>
+            <div>
+              <h3 class="service-title">Electricidad</h3>
+              <p class="service-text">Instalaciones certificadas y tableros de control.</p>
+              <div class="service-metrics">
+                <div>
+                  <div class="metric-num">12M+</div>
+                  <div class="metric-label">kW</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card span-2">
+          <img src="assets/aire-D9hAVNIu.jpg" alt="Aire Acondicionado">
+          <div class="service-content">
+            <div class="service-top">
+              <span class="mono" style="color:var(--primary)">/04</span>
+              <span class="service-dot"></span>
+            </div>
+            <div>
+              <h3 class="service-title">Aire Acondicionado</h3>
+              <p class="service-text">Split, VRF y ductería industrial.</p>
+              <div class="service-metrics">
+                <div>
+                  <div class="metric-num">8M+</div>
+                  <div class="metric-label">BTU</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card span-2">
+          <img src="assets/jardineria-DNTa4rQs.jpg" alt="Jardinería">
+          <div class="service-content">
+            <div class="service-top">
+              <span class="mono" style="color:var(--primary)">/05</span>
+              <span class="service-dot"></span>
+            </div>
+            <div>
+              <h3 class="service-title">Jardinería</h3>
+              <p class="service-text">Diseño paisajístico y mantenimiento.</p>
+              <div class="service-metrics">
+                <div>
+                  <div class="metric-num">45K+</div>
+                  <div class="metric-label">m²</div>
+                </div>
+                <div>
+                  <div class="metric-num">120</div>
+                  <div class="metric-label">clientes</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="mono section-kicker">/ En movimiento</div>
+          <h2 class="section-title">Obra viva.</h2>
+        </div>
+        <div class="section-note">[ Registros directos de nuestros equipos y proyectos activos. ]</div>
+      </div>
+
+      <div class="motion-grid">
+        <div class="motion-card">
+          <video src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" autoplay muted loop playsinline></video>
+          <div class="motion-content">
+            <div class="motion-top">
+              <span class="rec">REC ●</span>
+              <span class="motion-index">01/03</span>
+            </div>
+            <div class="motion-title">Obra en curso</div>
+          </div>
+        </div>
+
+        <div class="motion-card">
+          <video src="https://videos.pexels.com/video-files/4488762/4488762-uhd_2732_1440_25fps.mp4" autoplay muted loop playsinline></video>
+          <div class="motion-content">
+            <div class="motion-top">
+              <span class="rec">REC ●</span>
+              <span class="motion-index">02/03</span>
+            </div>
+            <div class="motion-title">Vista aérea</div>
+          </div>
+        </div>
+
+        <div class="motion-card">
+          <video src="https://videos.pexels.com/video-files/2249402/2249402-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video>
+          <div class="motion-content">
+            <div class="motion-top">
+              <span class="rec">REC ●</span>
+              <span class="motion-index">03/03</span>
+            </div>
+            <div class="motion-title">Detalle técnico</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos" class="section section-light">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:48px;">
+        <div>
+          <div class="mono section-kicker">/ Portafolio</div>
+          <h2 class="section-title">Obra reciente.</h2>
+        </div>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <img src="assets/project1-JwGBdFVX.jpg" alt="Torre Corporativa Norte">
+          <div class="portfolio-content">
+            <div class="portfolio-top">
+              <span class="chip">Comercial</span>
+              <span class="portfolio-year">2025</span>
+            </div>
+            <div>
+              <div class="portfolio-size">4,200 m²</div>
+              <h3 class="portfolio-title">Torre Corporativa Norte</h3>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <img src="assets/project2-B4LPRg4v.jpg" alt="Residencia Los Robles">
+          <div class="portfolio-content">
+            <div class="portfolio-top">
+              <span class="chip">Residencial</span>
+              <span class="portfolio-year">2024</span>
+            </div>
+            <div>
+              <div class="portfolio-size">820 m²</div>
+              <h3 class="portfolio-title">Residencia Los Robles</h3>
+            </div>
+          </div>
+        </article>
+
+        <article class="portfolio-card">
+          <img src="assets/project3-DA-bAdb_.jpg" alt="Complejo Residencial Vega">
+          <div class="portfolio-content">
+            <div class="portfolio-top">
+              <span class="chip">Multifamiliar</span>
+              <span class="portfolio-year">2024</span>
+            </div>
+            <div>
+              <div class="portfolio-size">12,600 m²</div>
+              <h3 class="portfolio-title">Complejo Residencial Vega</h3>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="section section-dark">
+    <div class="container">
+      <div class="process-grid">
+        <div class="process-copy">
+          <div class="mono section-kicker">/ Proceso</div>
+          <h2 class="section-title">Cómo trabajamos.</h2>
+          <p style="margin-top:24px; color:var(--muted); max-width:28ch;">
+            Un flujo transparente de principio a fin. Sin sorpresas, sin subcontratos ocultos.
+          </p>
+        </div>
+
+        <div class="process-cards">
+          <div class="process-card">
+            <div class="process-num">01</div>
+            <div>
+              <h3 class="process-title">Diagnóstico</h3>
+              <p class="process-text">Visita técnica y levantamiento en 48h.</p>
+            </div>
+          </div>
+
+          <div class="process-card">
+            <div class="process-num">02</div>
+            <div>
+              <h3 class="process-title">Propuesta</h3>
+              <p class="process-text">Cotización detallada por partidas.</p>
+            </div>
+          </div>
+
+          <div class="process-card">
+            <div class="process-num">03</div>
+            <div>
+              <h3 class="process-title">Ejecución</h3>
+              <p class="process-text">Cuadrilla propia. Bitácora semanal.</p>
+            </div>
+          </div>
+
+          <div class="process-card">
+            <div class="process-num">04</div>
+            <div>
+              <h3 class="process-title">Entrega</h3>
+              <p class="process-text">Pruebas, planos as-built y garantía.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="section contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <div class="mono" style="opacity:.75; margin-bottom:16px;">/ Contacto</div>
+          <h2 class="contact-title">Tu próxima obra<br>empieza aquí.</h2>
+        </div>
+
+        <div class="contact-list">
+          <a href="tel:+000000000" class="contact-item">
+            <div class="contact-label">Teléfono</div>
+            <div class="contact-value">+00 000 000 000 →</div>
+          </a>
+
+          <a href="mailto:hola@nucleo.co" class="contact-item">
+            <div class="contact-label">Email</div>
+            <div class="contact-value">hola@nucleo.co →</div>
+          </a>
+
+          <div class="office">
+            <div class="contact-label">Oficina</div>
+            <div class="contact-value">Av. Principal 1234 · Lun–Vie 8:00–18:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-wrap">
+      <div>© 2026 NÚCLEO Constructora</div>
+      <div>Todos los derechos reservados</div>
+    </div>
+  </footer>
+
+</body>
+</html>

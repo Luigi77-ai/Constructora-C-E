@@ -16,22 +16,19 @@
 
   <style>
     :root{
-      --bg:#0f1117;
-      --bg-soft:#161b23;
-      --card:#1a1f2b;
-      --card-2:#212838;
-      --text:#f6f1e8;
-      --muted:#cbbfae;
+      --bg:#14100f;
+      --bg-soft:#1b1614;
+      --card:#221a17;
+      --text:#f8f3eb;
+      --muted:#d6c8b8;
       --line:rgba(255,255,255,.08);
-      --primary-red:#b71c1c;
-      --primary-red-2:#d62828;
-      --primary-yellow:#d4a017;
-      --primary-yellow-2:#f0c64a;
-      --primary-blue:#1f4e79;
-      --primary-blue-2:#2f6fa8;
-      --light:#f7f2e9;
-      --light-text:#171411;
-      --shadow:0 18px 50px rgba(0,0,0,.24);
+      --red:#b82020;
+      --red-dark:#8f1717;
+      --yellow:#d8a81d;
+      --yellow-soft:#efc64f;
+      --light:#f8f4ed;
+      --light-text:#181311;
+      --shadow:0 18px 50px rgba(0,0,0,.22);
       --container:1600px;
       --transition:all .35s ease;
       --header-height:82px;
@@ -45,12 +42,15 @@
       color:var(--text);
       line-height:1.5;
     }
+
     a{text-decoration:none;color:inherit;}
     img,video{display:block;max-width:100%;}
+
     .container{
       width:min(var(--container), calc(100% - 48px));
       margin-inline:auto;
     }
+
     .mono{
       font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
@@ -64,8 +64,8 @@
       z-index:100;
       height:var(--header-height);
       backdrop-filter:blur(16px);
-      background:rgba(15,17,23,.82);
-      border-bottom:1px solid rgba(240,198,74,.18);
+      background:rgba(20,16,15,.82);
+      border-bottom:1px solid rgba(216,168,29,.18);
     }
 
     .nav-wrap{
@@ -85,7 +85,7 @@
     .brand-mark{
       width:24px;
       height:24px;
-      background:linear-gradient(135deg,var(--primary-yellow),var(--primary-red),var(--primary-blue));
+      background:linear-gradient(135deg,var(--yellow),var(--red));
       clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
       flex:0 0 auto;
     }
@@ -111,7 +111,7 @@
       transition:var(--transition);
     }
 
-    nav a:hover{color:var(--primary-yellow-2);}
+    nav a:hover{color:var(--yellow-soft);}
 
     .btn{
       display:inline-flex;
@@ -119,13 +119,15 @@
       justify-content:center;
       min-height:44px;
       padding:14px 18px;
-      background:linear-gradient(135deg,var(--primary-red),var(--primary-yellow),var(--primary-blue));
+      background:linear-gradient(135deg,var(--red),var(--yellow));
       color:#fff;
       font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
       letter-spacing:.12em;
       font-size:12px;
       transition:var(--transition);
+      border:none;
+      cursor:pointer;
     }
 
     .btn:hover{
@@ -153,8 +155,8 @@
 
     .hero-overlay{
       background:
-        linear-gradient(to bottom, rgba(10,12,17,.55), rgba(10,12,17,.35), rgba(10,12,17,.94)),
-        linear-gradient(135deg, rgba(183,28,28,.18), rgba(212,160,23,.14), rgba(31,78,121,.18));
+        linear-gradient(to bottom, rgba(20,16,15,.52), rgba(20,16,15,.32), rgba(20,16,15,.94)),
+        linear-gradient(135deg, rgba(184,32,32,.18), rgba(216,168,29,.14));
     }
 
     .hero-grid{
@@ -173,9 +175,7 @@
       justify-content:space-between;
     }
 
-    .hero-top{
-      padding-bottom:40px;
-    }
+    .hero-top{padding-bottom:40px;}
 
     .hero h1{
       font-size:clamp(3.2rem, 10vw, 10rem);
@@ -185,20 +185,20 @@
       max-width:10ch;
     }
 
-    .hero h1 .accent{color:var(--primary-yellow-2);}
-    .hero h1 .muted{color:#d8ddea;}
+    .hero h1 .accent{color:var(--yellow-soft);}
+    .hero h1 .muted{color:#f0d8c0;}
 
     .hero-grid-boxes{
       display:grid;
       grid-template-columns:repeat(5, 1fr);
       gap:1px;
-      background:rgba(240,198,74,.14);
-      border-top:1px solid rgba(240,198,74,.18);
+      background:rgba(216,168,29,.14);
+      border-top:1px solid rgba(216,168,29,.18);
       margin-top:auto;
     }
 
     .hero-grid-box{
-      background:rgba(15,17,23,.85);
+      background:rgba(20,16,15,.85);
       backdrop-filter:blur(10px);
       padding:24px;
       min-height:110px;
@@ -208,7 +208,7 @@
     }
 
     .hero-grid-box .num{
-      color:var(--primary-yellow-2);
+      color:var(--yellow-soft);
       font-family:'JetBrains Mono',monospace;
       font-size:12px;
     }
@@ -219,16 +219,12 @@
       font-weight:800;
     }
 
-    .section{
-      padding:96px 0;
-    }
-
+    .section{padding:96px 0;}
     .section-dark{
       background:var(--bg);
       color:var(--text);
       border-top:1px solid var(--line);
     }
-
     .section-light{
       background:var(--light);
       color:var(--light-text);
@@ -246,10 +242,15 @@
     }
 
     .section-title{
-      font-size:clamp(2.4rem, 6vw, 5.6rem);
+      font-size:clamp(2.2rem, 6vw, 5.2rem);
       font-weight:900;
       line-height:.95;
       letter-spacing:-.05em;
+    }
+
+    .section-title.center{
+      text-align:center;
+      width:100%;
     }
 
     .services-grid{
@@ -262,7 +263,7 @@
       position:relative;
       min-height:390px;
       overflow:hidden;
-      background:var(--card);
+      background:#fff;
       box-shadow:var(--shadow);
     }
 
@@ -281,13 +282,13 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      opacity:.62;
+      opacity:.65;
       transition:transform .7s ease, opacity .7s ease;
     }
 
     .service-card:hover img{
       transform:scale(1.05);
-      opacity:.84;
+      opacity:.86;
     }
 
     .service-card::after{
@@ -295,8 +296,8 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(to top, rgba(15,17,23,.95), rgba(15,17,23,.58), transparent),
-        linear-gradient(135deg, rgba(183,28,28,.14), rgba(212,160,23,.10), rgba(31,78,121,.12));
+        linear-gradient(to top, rgba(24,19,17,.88), rgba(24,19,17,.28), transparent),
+        linear-gradient(135deg, rgba(184,32,32,.10), rgba(216,168,29,.08));
     }
 
     .service-content{
@@ -313,42 +314,48 @@
       font-size:clamp(2rem, 4vw, 2.7rem);
       font-weight:900;
       letter-spacing:-.04em;
+      color:#fff;
+    }
+
+    .stats-section .section-head{
+      margin-bottom:32px;
+    }
+
+    .stats-section .section-title{
+      font-size:clamp(1.9rem, 4vw, 3rem);
     }
 
     .stats-grid{
       display:grid;
       grid-template-columns:repeat(4, 1fr);
-      gap:32px;
+      gap:24px;
     }
 
     .stat{
-      border-left:3px solid var(--primary-red);
-      padding-left:24px;
+      border-left:3px solid var(--red);
+      padding-left:18px;
     }
 
-    .stat:nth-child(2){border-left-color:var(--primary-yellow);}
-    .stat:nth-child(3){border-left-color:var(--primary-blue);}
-    .stat:nth-child(4){border-left-color:var(--primary-red-2);}
-
     .stat-number{
-      font-size:clamp(3rem, 6vw, 4.8rem);
+      font-size:clamp(2rem, 3.5vw, 3rem);
       font-weight:900;
-      letter-spacing:-.06em;
-      line-height:.9;
+      letter-spacing:-.05em;
+      line-height:1;
       color:#18120f;
     }
 
     .stat-title{
-      margin-top:12px;
+      margin-top:10px;
+      font-size:1rem;
       font-weight:700;
     }
 
     .stat-meta{
-      margin-top:6px;
+      margin-top:5px;
       font-family:'JetBrains Mono', monospace;
       text-transform:uppercase;
-      letter-spacing:.14em;
-      font-size:11px;
+      letter-spacing:.12em;
+      font-size:10px;
       color:#7c6d5f;
     }
 
@@ -375,23 +382,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(15,17,23,.92), transparent);
-    }
-
-    .motion-content{
-      position:absolute;
-      inset:0;
-      z-index:2;
-      padding:24px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-    }
-
-    .motion-title{
-      font-size:clamp(2.2rem, 5vw, 4.2rem);
-      font-weight:900;
-      letter-spacing:-.04em;
+      background:linear-gradient(to top, rgba(20,16,15,.76), transparent);
     }
 
     .portfolio-grid{
@@ -452,7 +443,7 @@
 
     .portfolio-year,
     .portfolio-size{
-      color:var(--primary-yellow-2);
+      color:var(--yellow-soft);
       font-family:'JetBrains Mono',monospace;
       font-size:12px;
     }
@@ -465,7 +456,7 @@
     }
 
     .process-light{
-      background:var(--light);
+      background:#fff;
       color:var(--light-text);
       border-top:1px solid rgba(0,0,0,.08);
       border-bottom:1px solid rgba(0,0,0,.08);
@@ -486,7 +477,7 @@
       display:grid;
       grid-template-columns:repeat(2, 1fr);
       gap:1px;
-      background:rgba(31,78,121,.12);
+      background:rgba(184,32,32,.10);
     }
 
     .process-card{
@@ -502,7 +493,7 @@
       font-size:4rem;
       font-weight:900;
       letter-spacing:-.05em;
-      color:rgba(31,78,121,.22);
+      color:var(--red);
       line-height:.9;
     }
 
@@ -518,23 +509,23 @@
     }
 
     .process-main-title{
-      font-size:clamp(2rem,4vw,3.5rem);
+      font-size:clamp(1.9rem,3.5vw,3rem);
       font-weight:900;
       line-height:1;
       letter-spacing:-.04em;
     }
 
     .contact{
-      background:linear-gradient(135deg,var(--primary-red),var(--primary-blue) 48%,var(--primary-yellow));
+      background:linear-gradient(135deg,var(--red) 0%, var(--red-dark) 38%, var(--yellow) 100%);
       color:#fff;
       border-top:1px solid rgba(255,255,255,.12);
     }
 
     .contact-grid{
       display:grid;
-      grid-template-columns:repeat(2, 1fr);
+      grid-template-columns:1.1fr .9fr;
       gap:48px;
-      align-items:end;
+      align-items:start;
     }
 
     .contact-title{
@@ -542,6 +533,12 @@
       line-height:.9;
       font-weight:900;
       letter-spacing:-.06em;
+    }
+
+    .contact-right{
+      display:flex;
+      flex-direction:column;
+      gap:28px;
     }
 
     .contact-list{
@@ -569,6 +566,7 @@
       font-size:clamp(1.5rem, 3vw, 2rem);
       font-weight:900;
       transition:var(--transition);
+      word-break:break-word;
     }
 
     .contact-item:hover .contact-value{
@@ -584,9 +582,88 @@
       transform:none !important;
     }
 
+    .contact-form{
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      backdrop-filter:blur(8px);
+      padding:24px;
+      border-radius:18px;
+    }
+
+    .contact-form h3{
+      font-size:1.5rem;
+      font-weight:900;
+      margin-bottom:14px;
+    }
+
+    .form-grid{
+      display:grid;
+      gap:14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select{
+      width:100%;
+      padding:14px 16px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.14);
+      color:#fff;
+      font:inherit;
+      outline:none;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder{
+      color:rgba(255,255,255,.72);
+    }
+
+    .contact-form select{
+      color:#fff;
+    }
+
+    .contact-form option{
+      color:#111;
+    }
+
+    .contact-form textarea{
+      min-height:130px;
+      resize:vertical;
+    }
+
+    .contact-form .btn{
+      width:100%;
+      background:#fff;
+      color:var(--red);
+      font-weight:800;
+    }
+
+    .whatsapp-float{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      width:58px;
+      height:58px;
+      border-radius:999px;
+      background:#25D366;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 14px 30px rgba(0,0,0,.25);
+      z-index:120;
+      transition:transform .25s ease, filter .25s ease;
+    }
+
+    .whatsapp-float:hover{
+      transform:translateY(-2px) scale(1.03);
+      filter:brightness(1.04);
+    }
+
     footer{
       background:var(--bg);
-      border-top:1px solid rgba(240,198,74,.14);
+      border-top:1px solid rgba(216,168,29,.14);
     }
 
     .footer-wrap{
@@ -674,6 +751,10 @@
       .stat{
         padding-left:18px;
       }
+
+      .contact-form{
+        padding:18px;
+      }
     }
   </style>
 </head>
@@ -709,7 +790,7 @@
         <h1>
           CONSTRUIMOS<br>
           <span class="accent">SISTEMAS</span><br>
-          <span class="muted">COMPLETOS.</span>
+          <span class="muted">COMPLETOS</span>
         </h1>
       </div>
 
@@ -738,11 +819,11 @@
     </div>
   </section>
 
-  <section id="servicios" class="section section-dark">
+  <section id="servicios" class="section section-light">
     <div class="container">
       <div class="section-head">
-        <div>
-          <h2 class="section-title">Cinco disciplinas.<br>Un solo equipo.</h2>
+        <div style="width:100%;">
+          <h2 class="section-title center">Cinco disciplinas<br>Un solo equipo</h2>
         </div>
       </div>
 
@@ -785,7 +866,7 @@
     </div>
   </section>
 
-  <section class="section section-light">
+  <section class="section section-light stats-section">
     <div class="container">
       <div class="section-head">
         <div>
@@ -832,23 +913,14 @@
       <div class="motion-grid">
         <div class="motion-card">
           <video src="https://videos.pexels.com/video-files/3195394/3195394-uhd_2560_1440_25fps.mp4" autoplay muted loop playsinline></video>
-          <div class="motion-content">
-            <div class="motion-title">Nuestro trabajo</div>
-          </div>
         </div>
 
         <div class="motion-card">
           <video src="https://videos.pexels.com/video-files/4488762/4488762-uhd_2732_1440_25fps.mp4" autoplay muted loop playsinline></video>
-          <div class="motion-content">
-            <div class="motion-title">Nuestro trabajo</div>
-          </div>
         </div>
 
         <div class="motion-card">
           <video src="https://videos.pexels.com/video-files/2249402/2249402-hd_1920_1080_30fps.mp4" autoplay muted loop playsinline></video>
-          <div class="motion-content">
-            <div class="motion-title">Nuestro trabajo</div>
-          </div>
         </div>
       </div>
     </div>
@@ -858,7 +930,7 @@
     <div class="container">
       <div class="section-head" style="margin-bottom:48px;">
         <div>
-          <h2 class="section-title">Obra reciente.</h2>
+          <h2 class="section-title">Obra reciente</h2>
         </div>
       </div>
 
@@ -920,7 +992,7 @@
             <div class="process-num">01</div>
             <div>
               <h3 class="process-title">Diagnóstico</h3>
-              <p class="process-text">Visita técnica y levantamiento en 48h.</p>
+              <p class="process-text">Visita técnica y levantamiento en 48h</p>
             </div>
           </div>
 
@@ -928,7 +1000,7 @@
             <div class="process-num">02</div>
             <div>
               <h3 class="process-title">Propuesta</h3>
-              <p class="process-text">Cotización detallada por partidas.</p>
+              <p class="process-text">Cotización detallada por partidas</p>
             </div>
           </div>
 
@@ -936,7 +1008,7 @@
             <div class="process-num">03</div>
             <div>
               <h3 class="process-title">Ejecución</h3>
-              <p class="process-text">Cuadrilla propia. Bitácora semanal.</p>
+              <p class="process-text">Cuadrilla propia. Bitácora semanal</p>
             </div>
           </div>
 
@@ -944,7 +1016,7 @@
             <div class="process-num">04</div>
             <div>
               <h3 class="process-title">Entrega</h3>
-              <p class="process-text">Pruebas, planos as-built y garantía.</p>
+              <p class="process-text">Pruebas, planos as-built y garantía</p>
             </div>
           </div>
         </div>
@@ -956,28 +1028,56 @@
     <div class="container">
       <div class="contact-grid">
         <div>
-          <h2 class="contact-title">Tu próxima obra<br>empieza aquí.</h2>
+          <h2 class="contact-title">Tu próxima obra<br>empieza aquí</h2>
         </div>
 
-        <div class="contact-list">
-          <a href="tel:+50499752125" class="contact-item">
-            <div class="contact-label">Teléfono</div>
-            <div class="contact-value">+504 9975-2125 →</div>
-          </a>
+        <div class="contact-right">
+          <div class="contact-list">
+            <a href="tel:+50499752125" class="contact-item">
+              <div class="contact-label">Teléfono</div>
+              <div class="contact-value">+504 9975-2125 →</div>
+            </a>
 
-          <a href="mailto:servicioselectricoscanales@gmail.com" class="contact-item">
-            <div class="contact-label">Email</div>
-            <div class="contact-value">servicioselectricoscanales@gmail.com →</div>
-          </a>
+            <a href="mailto:servicioselectricoscanales@gmail.com" class="contact-item">
+              <div class="contact-label">Email</div>
+              <div class="contact-value">servicioselectricoscanales@gmail.com →</div>
+            </a>
 
-          <div class="office">
-            <div class="contact-label">Oficina</div>
-            <div class="contact-value">Atención directa para proyectos de construcción, electricidad, AC y jardinería.</div>
+            <div class="office">
+              <div class="contact-label">Oficina</div>
+              <div class="contact-value">Atención directa para proyectos de construcción, electricidad, AC y jardinería</div>
+            </div>
           </div>
+
+          <form class="contact-form" action="mailto:servicioselectricoscanales@gmail.com" method="post" enctype="text/plain">
+            <h3>Solicita información</h3>
+            <div class="form-grid">
+              <input type="text" name="Nombre" placeholder="Tu nombre" required>
+              <input type="tel" name="Teléfono" placeholder="Tu teléfono" required>
+              <input type="email" name="Correo" placeholder="Tu correo electrónico" required>
+              <select name="Servicio" required>
+                <option value="">Selecciona el servicio que deseas</option>
+                <option value="Construcción">Construcción</option>
+                <option value="Remodelación">Remodelación</option>
+                <option value="Electricidad">Electricidad</option>
+                <option value="AC">AC</option>
+                <option value="Jardinería">Jardinería</option>
+              </select>
+              <textarea name="Mensaje" placeholder="Cuéntanos qué servicio necesitas"></textarea>
+              <button type="submit" class="btn">Enviar solicitud</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
+
+  <a class="whatsapp-float" href="https://wa.me/50499752125" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M19.11 17.21c-.27-.14-1.58-.78-1.82-.87-.24-.09-.41-.14-.58.14-.17.27-.67.87-.82 1.05-.15.18-.3.2-.57.07-.27-.14-1.12-.41-2.14-1.3-.79-.71-1.33-1.58-1.49-1.85-.16-.27-.02-.42.12-.56.12-.12.27-.3.41-.45.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.58-1.41-.79-1.93-.21-.5-.42-.43-.58-.43h-.49c-.18 0-.46.07-.71.34s-.93.91-.93 2.22c0 1.3.96 2.56 1.09 2.74.14.18 1.88 2.87 4.56 4.03.64.28 1.15.45 1.54.57.65.2 1.24.17 1.71.1.52-.08 1.58-.65 1.8-1.28.22-.63.22-1.17.15-1.28-.07-.11-.24-.18-.5-.32Z"/>
+      <path d="M16.05 3.2c-6.99 0-12.67 5.67-12.67 12.66 0 2.23.58 4.4 1.68 6.32L3.2 28.8l6.8-1.79a12.62 12.62 0 0 0 6.04 1.54h.01c6.98 0 12.66-5.68 12.66-12.67 0-3.39-1.32-6.58-3.72-8.97A12.58 12.58 0 0 0 16.05 3.2Zm0 23.2h-.01a10.5 10.5 0 0 1-5.35-1.47l-.38-.22-4.03 1.06 1.08-3.93-.24-.4a10.52 10.52 0 1 1 8.93 4.96Z"/>
+    </svg>
+  </a>
 
   <footer>
     <div class="container footer-wrap">
@@ -991,7 +1091,6 @@
 
     const animateCounter = (el) => {
       const target = Number(el.dataset.count);
-      const suffix = target === 94 ? '%' : '+';
       const duration = 1800;
       const start = performance.now();
 

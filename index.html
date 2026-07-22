@@ -3,14 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>NÚCLEO — Construcción, Electricidad, Clima y Jardinería</title>
-  <meta name="description" content="Constructora integral. Obra, instalaciones eléctricas, aire acondicionado y paisajismo bajo un solo estándar." />
-
+  <meta name="description" content="Obra, eléctricos, HVAC y jardinería. Un solo equipo, cuatro disciplinas." />
   <meta property="og:title" content="NÚCLEO — Constructora integral" />
   <meta property="og:description" content="Obra, eléctricos, HVAC y jardinería. Un solo equipo, cuatro disciplinas." />
   <meta property="og:type" content="website" />
-
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="NÚCLEO — Constructora integral" />
   <meta name="twitter:description" content="Obra, eléctricos, HVAC y jardinería. Un solo equipo, cuatro disciplinas." />
@@ -21,24 +18,25 @@
 
   <style>
     :root{
-      --bg:#0c0d0f;
-      --bg-soft:#121418;
-      --card:#161a1f;
-      --card-2:#1b2026;
-      --text:#f4f1ea;
-      --muted:#a7afb8;
+      --bg:#0f0b0b;
+      --bg-soft:#171111;
+      --card:#1b1414;
+      --card-2:#241919;
+      --text:#f7f1e8;
+      --muted:#c7b8a8;
       --line:rgba(255,255,255,.08);
-      --line-2:rgba(255,255,255,.14);
-      --primary:#e2852f;
-      --primary-2:#ff9d43;
+      --line-2:rgba(255,214,10,.2);
+      --primary:#c61f1f;
+      --primary-2:#8f1414;
+      --accent:#e0b100;
+      --accent-2:#f1c93b;
       --white:#ffffff;
-      --dark:#0b0b0b;
-      --section-white:#f7f5f1;
-      --section-white-text:#111111;
+      --section-light:#f6f1e7;
+      --section-light-text:#1a1412;
+      --shadow:0 18px 50px rgba(0,0,0,.25);
       --container:1600px;
-      --shadow:0 16px 50px rgba(0,0,0,.22);
-      --radius:0px;
       --transition:all .35s ease;
+      --header-height:82px;
     }
 
     *{
@@ -64,8 +62,8 @@
     }
 
     img, video{
-      max-width:100%;
       display:block;
+      max-width:100%;
     }
 
     .container{
@@ -76,7 +74,7 @@
     .mono{
       font-family:'JetBrains Mono', monospace;
       text-transform:uppercase;
-      letter-spacing:.18em;
+      letter-spacing:.16em;
       font-size:12px;
     }
 
@@ -91,8 +89,8 @@
     }
 
     .section-light{
-      background:var(--section-white);
-      color:var(--section-white-text);
+      background:var(--section-light);
+      color:var(--section-light-text);
       border-top:1px solid rgba(0,0,0,.08);
       border-bottom:1px solid rgba(0,0,0,.08);
     }
@@ -107,13 +105,13 @@
     }
 
     .section-kicker{
-      color:var(--primary);
+      color:var(--accent);
       margin-bottom:12px;
     }
 
     .section-light .section-kicker,
     .section-light .muted-kicker{
-      color:#6b7280;
+      color:#7c6d5f;
     }
 
     .section-title{
@@ -131,7 +129,7 @@
     }
 
     .section-light .section-note{
-      color:#6b7280;
+      color:#7c6d5f;
     }
 
     header{
@@ -140,17 +138,18 @@
       left:0;
       right:0;
       z-index:100;
-      backdrop-filter:blur(18px);
-      background:rgba(12,13,15,.72);
-      border-bottom:1px solid var(--line);
+      height:var(--header-height);
+      backdrop-filter:blur(16px);
+      background:rgba(15,11,11,.82);
+      border-bottom:1px solid rgba(224,177,0,.18);
     }
 
     .nav-wrap{
+      min-height:var(--header-height);
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:20px;
-      padding:18px 0;
     }
 
     .brand{
@@ -162,7 +161,7 @@
     .brand-mark{
       width:24px;
       height:24px;
-      background:var(--primary);
+      background:linear-gradient(135deg, var(--accent), var(--primary));
       clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
       flex:0 0 auto;
     }
@@ -189,7 +188,7 @@
     }
 
     nav a:hover{
-      color:var(--text);
+      color:var(--accent);
     }
 
     .btn{
@@ -198,7 +197,7 @@
       justify-content:center;
       min-height:44px;
       padding:14px 18px;
-      background:var(--primary);
+      background:linear-gradient(135deg, var(--primary), var(--accent));
       color:#fff;
       font-family:'JetBrains Mono', monospace;
       text-transform:uppercase;
@@ -208,15 +207,15 @@
     }
 
     .btn:hover{
-      background:var(--primary-2);
       transform:translateY(-1px);
+      filter:brightness(1.05);
     }
 
     .hero{
       position:relative;
       min-height:100vh;
       overflow:hidden;
-      padding-top:92px;
+      padding-top:var(--header-height);
     }
 
     .hero-bg,
@@ -233,33 +232,29 @@
     }
 
     .hero-overlay{
-      background:linear-gradient(to bottom, rgba(12,13,15,.62), rgba(12,13,15,.4), var(--bg));
+      background:
+        linear-gradient(to bottom, rgba(15,11,11,.58), rgba(15,11,11,.35), rgba(15,11,11,.96)),
+        linear-gradient(135deg, rgba(198,31,31,.18), rgba(224,177,0,.12));
     }
 
     .hero-grid{
       background-image:
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
       background-size:80px 80px;
     }
 
     .hero-content{
       position:relative;
-      padding:80px 0 64px;
-    }
-
-    .hero-kicker{
+      min-height:calc(100vh - var(--header-height));
+      padding:110px 0 0;
       display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:28px;
-      color:var(--primary);
+      flex-direction:column;
+      justify-content:space-between;
     }
 
-    .hero-kicker-line{
-      width:32px;
-      height:1px;
-      background:var(--primary);
+    .hero-top{
+      padding-bottom:40px;
     }
 
     .hero h1{
@@ -267,34 +262,38 @@
       line-height:.85;
       letter-spacing:-.08em;
       font-weight:900;
+      max-width:10ch;
     }
 
     .hero h1 .accent{
-      color:var(--primary);
+      color:var(--accent);
     }
 
     .hero h1 .muted{
-      color:#808892;
+      color:#e6c7a8;
     }
 
     .hero-grid-boxes{
-      margin-top:56px;
       display:grid;
       grid-template-columns:repeat(5, 1fr);
       gap:1px;
-      background:var(--line);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
+      background:rgba(224,177,0,.12);
+      border-top:1px solid rgba(224,177,0,.18);
+      margin-top:auto;
     }
 
     .hero-grid-box{
-      background:rgba(12,13,15,.88);
+      background:rgba(15,11,11,.85);
       backdrop-filter:blur(10px);
       padding:24px;
+      min-height:110px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
     }
 
     .hero-grid-box .num{
-      color:var(--primary);
+      color:var(--accent);
       font-family:'JetBrains Mono', monospace;
       font-size:12px;
     }
@@ -349,7 +348,7 @@
     .marquee-mark{
       width:24px;
       height:24px;
-      background:#111;
+      background:linear-gradient(135deg, var(--primary), var(--accent));
       clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
     }
 
@@ -385,7 +384,7 @@
     }
 
     .stat{
-      border-left:2px solid #111;
+      border-left:2px solid var(--primary);
       padding-left:24px;
     }
 
@@ -394,6 +393,7 @@
       font-weight:900;
       letter-spacing:-.06em;
       line-height:.9;
+      color:#1a1412;
     }
 
     .stat-title{
@@ -407,7 +407,7 @@
       text-transform:uppercase;
       letter-spacing:.14em;
       font-size:11px;
-      color:#6b7280;
+      color:#7c6d5f;
     }
 
     .services-grid{
@@ -439,20 +439,20 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      opacity:.6;
+      opacity:.58;
       transition:transform .7s ease, opacity .7s ease;
     }
 
     .service-card:hover img{
       transform:scale(1.05);
-      opacity:.82;
+      opacity:.8;
     }
 
     .service-card::after{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(12,13,15,.95), rgba(12,13,15,.68), transparent);
+      background:linear-gradient(to top, rgba(15,11,11,.95), rgba(15,11,11,.66), transparent);
     }
 
     .service-content{
@@ -475,7 +475,7 @@
       width:8px;
       height:8px;
       border-radius:999px;
-      background:var(--primary);
+      background:var(--accent);
     }
 
     .service-title{
@@ -501,7 +501,7 @@
     }
 
     .metric-num{
-      color:var(--primary);
+      color:var(--accent);
       font-size:1.55rem;
       font-weight:900;
     }
@@ -537,7 +537,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(to top, rgba(12,13,15,.92), transparent);
+      background:linear-gradient(to top, rgba(15,11,11,.92), transparent);
     }
 
     .motion-content{
@@ -559,7 +559,7 @@
     .rec{
       font-family:'JetBrains Mono', monospace;
       font-size:12px;
-      background:rgba(12,13,15,.78);
+      background:rgba(15,11,11,.78);
       backdrop-filter:blur(10px);
       padding:6px 10px;
     }
@@ -567,7 +567,7 @@
     .motion-index{
       font-family:'JetBrains Mono', monospace;
       font-size:12px;
-      color:var(--primary);
+      color:var(--accent);
     }
 
     .motion-title{
@@ -628,7 +628,7 @@
       display:inline-flex;
       align-items:center;
       padding:6px 10px;
-      background:rgba(255,255,255,.92);
+      background:rgba(255,245,214,.95);
       color:#111;
       font-family:'JetBrains Mono', monospace;
       font-size:12px;
@@ -637,7 +637,7 @@
 
     .portfolio-year,
     .portfolio-size{
-      color:var(--primary);
+      color:var(--accent);
       font-family:'JetBrains Mono', monospace;
       font-size:12px;
     }
@@ -664,7 +664,7 @@
       display:grid;
       grid-template-columns:repeat(2, 1fr);
       gap:1px;
-      background:var(--line);
+      background:rgba(224,177,0,.12);
     }
 
     .process-card{
@@ -680,7 +680,7 @@
       font-size:4rem;
       font-weight:900;
       letter-spacing:-.05em;
-      color:rgba(226,133,47,.22);
+      color:rgba(224,177,0,.28);
       line-height:.9;
     }
 
@@ -696,7 +696,7 @@
     }
 
     .contact{
-      background:var(--primary);
+      background:linear-gradient(135deg, var(--primary), #7f1212 55%, var(--accent));
       color:#fff;
       border-top:1px solid rgba(255,255,255,.12);
     }
@@ -757,7 +757,7 @@
 
     footer{
       background:var(--bg);
-      border-top:1px solid var(--line);
+      border-top:1px solid rgba(224,177,0,.14);
     }
 
     .footer-wrap{
@@ -833,7 +833,7 @@
       }
 
       .hero-content{
-        padding:64px 0 48px;
+        padding:90px 0 0;
       }
 
       .hero-grid-box{
@@ -872,22 +872,19 @@
 
   <section id="top" class="hero">
     <div class="hero-bg">
-      <video src="https://videos.pexels.com/video-files/2887463/2887463-hd_1920_1080_25fps.mp4" autoplay muted loop playsinline></video>
+      <video src="Media/12360854_3840_2160_24fps (1).mp4" autoplay muted loop playsinline></video>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-grid"></div>
 
     <div class="container hero-content">
-      <div class="hero-kicker mono">
-        <span class="hero-kicker-line"></span>
-        <span>Est. 2011 · Constructora Integral</span>
+      <div class="hero-top">
+        <h1>
+          CONSTRUIMOS<br>
+          <span class="accent">SISTEMAS</span><br>
+          <span class="muted">COMPLETOS.</span>
+        </h1>
       </div>
-
-      <h1>
-        CONSTRUIMOS<br>
-        <span class="accent">SISTEMAS</span><br>
-        <span class="muted">COMPLETOS.</span>
-      </h1>
 
       <div class="hero-grid-boxes">
         <div class="hero-grid-box">
@@ -933,7 +930,6 @@
           <div class="marquee-item"><div class="marquee-mark"></div><span>NOVA HOMES</span></div>
           <div class="marquee-item"><div class="marquee-mark"></div><span>PLAZA REAL</span></div>
           <div class="marquee-item"><div class="marquee-mark"></div><span>BOSQUE ALTO</span></div>
-
           <div class="marquee-item"><div class="marquee-mark"></div><span>GRUPO ANDES</span></div>
           <div class="marquee-item"><div class="marquee-mark"></div><span>CONSORCIO DELTA</span></div>
           <div class="marquee-item"><div class="marquee-mark"></div><span>HABITAT+</span></div>
@@ -956,10 +952,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <div class="mono section-kicker">/ Cifras</div>
-          <h2 class="section-title">15 años. Números que respaldan.</h2>
+          <h2 class="section-title">15 años Números que respaldan</h2>
         </div>
-        <div class="section-note">[ Datos acumulados desde el inicio de operaciones. ]</div>
       </div>
 
       <div class="stats-grid">
@@ -997,7 +991,6 @@
           <div class="mono section-kicker">/ Servicios</div>
           <h2 class="section-title">Cinco disciplinas.<br>Un solo equipo.</h2>
         </div>
-        <div class="section-note">[ Un contratista único elimina fricción, tiempos muertos y responsabilidades cruzadas. ]</div>
       </div>
 
       <div class="services-grid">
@@ -1005,7 +998,7 @@
           <img src="assets/construccion-D4j7fkx6.jpg" alt="Construcción">
           <div class="service-content">
             <div class="service-top">
-              <span class="mono" style="color:var(--primary)">/01</span>
+              <span class="mono" style="color:var(--accent)">/01</span>
               <span class="service-dot"></span>
             </div>
             <div>
@@ -1029,7 +1022,7 @@
           <img src="assets/project2-B4LPRg4v.jpg" alt="Remodelación">
           <div class="service-content">
             <div class="service-top">
-              <span class="mono" style="color:var(--primary)">/02</span>
+              <span class="mono" style="color:var(--accent)">/02</span>
               <span class="service-dot"></span>
             </div>
             <div>
@@ -1049,7 +1042,7 @@
           <img src="assets/electricidad-CaheN_qc.jpg" alt="Electricidad">
           <div class="service-content">
             <div class="service-top">
-              <span class="mono" style="color:var(--primary)">/03</span>
+              <span class="mono" style="color:var(--accent)">/03</span>
               <span class="service-dot"></span>
             </div>
             <div>
@@ -1069,7 +1062,7 @@
           <img src="assets/aire-D9hAVNIu.jpg" alt="Aire Acondicionado">
           <div class="service-content">
             <div class="service-top">
-              <span class="mono" style="color:var(--primary)">/04</span>
+              <span class="mono" style="color:var(--accent)">/04</span>
               <span class="service-dot"></span>
             </div>
             <div>
@@ -1089,7 +1082,7 @@
           <img src="assets/jardineria-DNTa4rQs.jpg" alt="Jardinería">
           <div class="service-content">
             <div class="service-top">
-              <span class="mono" style="color:var(--primary)">/05</span>
+              <span class="mono" style="color:var(--accent)">/05</span>
               <span class="service-dot"></span>
             </div>
             <div>
@@ -1119,7 +1112,6 @@
           <div class="mono section-kicker">/ En movimiento</div>
           <h2 class="section-title">Obra viva.</h2>
         </div>
-        <div class="section-note">[ Registros directos de nuestros equipos y proyectos activos. ]</div>
       </div>
 
       <div class="motion-grid">
@@ -1220,9 +1212,6 @@
         <div class="process-copy">
           <div class="mono section-kicker">/ Proceso</div>
           <h2 class="section-title">Cómo trabajamos.</h2>
-          <p style="margin-top:24px; color:var(--muted); max-width:28ch;">
-            Un flujo transparente de principio a fin. Sin sorpresas, sin subcontratos ocultos.
-          </p>
         </div>
 
         <div class="process-cards">

@@ -197,7 +197,7 @@
 
     .hero-grid-boxes{
       display:grid;
-      grid-template-columns:repeat(5, 1fr);
+      grid-template-columns:repeat(4, 1fr);
       gap:1px;
       background:rgba(216,168,29,.14);
       border-top:1px solid rgba(216,168,29,.18);
@@ -218,8 +218,10 @@
 
     .hero-grid-box .num{
       color:var(--yellow-soft);
-      font-family:'JetBrains Mono',monospace;
-      font-size:12px;
+      font-family:'Archivo',sans-serif;
+      font-weight:900;
+      letter-spacing:-.03em;
+      font-size:clamp(1.6rem, 2.6vw, 2.3rem);
     }
 
     .hero-grid-box .label{
@@ -269,51 +271,53 @@
       border-bottom:1px solid rgba(0,0,0,.08);
     }
 
-    .about-header{
-      max-width:680px;
-      margin:0 auto 56px;
-      text-align:center;
-    }
-
-    .about-heading{
-      font-size:clamp(2rem,5vw,3.2rem);
-      font-weight:900;
-      letter-spacing:-.03em;
-      line-height:1.08;
-      color:var(--light-text);
-    }
-
-    .about-sub{ display:none; }
-
-    .about-header .btn{ display:none; }
-
-    .about-bento{
+    .about-intro{
       display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      grid-auto-rows:130px;
-      grid-auto-flow:dense;
-      gap:14px;
+      grid-template-columns:0.9fr 1.1fr;
+      gap:56px;
+      align-items:center;
       max-width:1100px;
       margin:0 auto 64px;
     }
 
-    .about-bento-item{
-      border-radius:20px;
+    .about-photo{
+      border-radius:24px;
       overflow:hidden;
       box-shadow:var(--shadow);
+      min-height:420px;
       background:#eee;
     }
 
-    .about-bento-item.feature{
-      grid-column:span 2;
-      grid-row:span 2;
-    }
-
-    .about-bento-item img{
+    .about-photo img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
+    }
+
+    .about-eyebrow{
+      display:block;
+      font-family:'JetBrains Mono',monospace;
+      font-size:12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--red);
+      margin-bottom:14px;
+    }
+
+    .about-heading{
+      font-size:clamp(2.4rem,5vw,3.6rem);
+      font-weight:900;
+      letter-spacing:-.03em;
+      line-height:1.05;
+      color:var(--light-text);
+    }
+
+    .about-desc{
+      margin-top:20px;
+      font-size:1.05rem;
+      color:#6f655a;
+      line-height:1.6;
     }
 
     .about-columns{
@@ -361,10 +365,8 @@
     }
 
     .brand-strip{
-      padding:28px 0;
+      padding:44px 0;
       background:#fff;
-      border-top:1px solid rgba(0,0,0,.08);
-      border-bottom:1px solid rgba(0,0,0,.08);
       overflow:hidden;
     }
 
@@ -400,8 +402,8 @@
     }
 
     .brand-item-mark{
-      width:24px;
-      height:24px;
+      width:42px;
+      height:42px;
       background:linear-gradient(135deg,var(--yellow),var(--red));
       clip-path:polygon(0 0,100% 0,100% 70%,70% 100%,0 100%);
     }
@@ -692,42 +694,58 @@
       max-width:60ch;
     }
 
-    .blog-icons-row{
+    .blog-bento{
       display:grid;
       grid-template-columns:repeat(3, 1fr);
-      gap:24px;
-      margin-top:40px;
-      padding-top:32px;
-      border-top:1px solid rgba(0,0,0,.08);
+      gap:20px;
     }
 
-    .blog-icon-item{
-      text-align:left;
+    .blog-bento-col{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
     }
 
-    .blog-icon{
-      width:40px;
-      height:40px;
-      color:var(--red);
-      margin-bottom:12px;
+    .blog-bento-photo{
+      border-radius:20px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      min-height:280px;
+      background:#eee;
     }
 
-    .blog-icon svg{
+    .blog-bento-photo.tall{
+      min-height:380px;
+    }
+
+    .blog-bento-photo img{
       width:100%;
       height:100%;
+      object-fit:cover;
       display:block;
     }
 
-    .blog-icon-item strong{
-      display:block;
-      font-size:1.05rem;
-      margin-bottom:6px;
+    .blog-bento-tag{
+      border-radius:16px;
+      padding:20px;
+      font-weight:800;
+      font-size:.95rem;
+      line-height:1.4;
     }
 
-    .blog-icon-item p{
-      font-size:.92rem;
-      color:#6f655a;
-      line-height:1.55;
+    .blog-bento-tag.yellow{
+      background:var(--yellow);
+      color:#18120f;
+    }
+
+    .blog-bento-tag.red{
+      background:var(--red);
+      color:#fff;
+    }
+
+    .blog-bento-tag.dark{
+      background:#18120f;
+      color:#fff;
     }
 
     .process-light{
@@ -1031,8 +1049,12 @@
         grid-template-columns:1fr;
       }
 
-      .about-fan{
-        flex-wrap:wrap;
+      .blog-bento{
+        grid-template-columns:1fr;
+      }
+
+      .about-intro{
+        grid-template-columns:1fr;
       }
 
       .about-columns{
@@ -1117,24 +1139,20 @@
 
       <div class="hero-grid-boxes">
         <div class="hero-grid-box">
-          <div class="num">01</div>
-          <div class="label">Construcción</div>
+          <div class="num">320+</div>
+          <div class="label">Proyectos entregados</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">02</div>
-          <div class="label">Remodelación</div>
+          <div class="num">15</div>
+          <div class="label">Años operando</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">03</div>
-          <div class="label">Electricidad</div>
+          <div class="num">94%</div>
+          <div class="label">Entregas a tiempo</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">04</div>
-          <div class="label">AC</div>
-        </div>
-        <div class="hero-grid-box">
-          <div class="num">05</div>
-          <div class="label">Jardinería</div>
+          <div class="num">120+</div>
+          <div class="label">Clientes activos</div>
         </div>
       </div>
     </div>
@@ -1142,19 +1160,15 @@
 
   <section id="acerca" class="section about-section">
     <div class="container">
-      <div class="about-header">
-        <h2 class="about-heading">Un equipo completo<br>para tu proxima obra</h2>
-        
-      </div>
-
-      <div class="about-bento">
-        <div class="about-bento-item feature"><img src="assets/about-empresa-1.jpg" alt="Equipo de trabajo"></div>
-        <div class="about-bento-item"><img src="assets/servicio-remodelacion.jpg" alt="Remodelacion"></div>
-        <div class="about-bento-item"><img src="assets/servicio-electricidad.jpg" alt="Electricidad"></div>
-        <div class="about-bento-item"><img src="assets/about-empresa-2.jpg" alt="Proyecto ejecutado"></div>
-        <div class="about-bento-item"><img src="assets/servicio-ac.jpg" alt="AC"></div>
-        <div class="about-bento-item"><img src="assets/servicio-jardineria.jpg" alt="Jardineria"></div>
-        <div class="about-bento-item"><img src="assets/servicio-construccion.jpg" alt="Construccion"></div>
+      <div class="about-intro">
+        <div class="about-photo">
+          <img src="assets/about-empresa-1.jpg" alt="Equipo Grupo C&amp;E">
+        </div>
+        <div class="about-text">
+          <span class="about-eyebrow">Quienes somos</span>
+          <h2 class="about-heading">Grupo C&amp;E</h2>
+          <p class="about-desc">Somos un equipo multidisciplinario dedicado a la construccion, remodelacion, electricidad, climatizacion y jardineria. Desde nuestros inicios trabajamos bajo una misma coordinacion tecnica, combinando experiencia, cuadrilla propia y atencion cercana en cada proyecto que emprendemos.</p>
+        </div>
       </div>
 
       <div class="about-columns">
@@ -1201,8 +1215,7 @@
         <div class="brand-item"><div class="brand-item-mark"></div><span>BOSQUE ALTO</span></div>
       </div>
 
-      <div class="brand-fade-left"></div>
-      <div class="brand-fade-right"></div>
+      
     </div>
   </section>
 
@@ -1253,41 +1266,7 @@
     </div>
   </section>
 
-  <section class="section section-light stats-section">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">Números que respaldan</h2>
-        </div>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat">
-          <div class="stat-number" data-count="320">0</div>
-          <div class="stat-title">Proyectos entregados</div>
-          <div class="stat-meta">2011–2026</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-number" data-count="15">0</div>
-          <div class="stat-title">Años operando</div>
-          <div class="stat-meta">Sin interrupción</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-number" data-count="94">0</div>
-          <div class="stat-title">Entregas a tiempo</div>
-          <div class="stat-meta">Últimos 3 años</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-number" data-count="120">0</div>
-          <div class="stat-title">Clientes activos</div>
-          <div class="stat-meta">Soporte 24/7</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  
 
   <section class="section section-dark">
     <div class="container">
@@ -1321,62 +1300,18 @@
         </div>
       </div>
 
-      <div class="portfolio-grid">
-        <article class="portfolio-card">
-          <img src="assets/project1-JwGBdFVX.jpg" alt="Como elegir el sistema electrico ideal">
-          <div class="portfolio-content">
-            <div class="portfolio-top">
-              <span class="chip">Consejos</span>
-              <span class="portfolio-year">Jul 2026</span>
-            </div>
-            <div>
-              <h3 class="portfolio-title">Como elegir el sistema electrico ideal para tu hogar</h3>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <img src="assets/project2-B4LPRg4v.jpg" alt="Tendencias en remodelacion 2026">
-          <div class="portfolio-content">
-            <div class="portfolio-top">
-              <span class="chip">Tendencias</span>
-              <span class="portfolio-year">Jun 2026</span>
-            </div>
-            <div>
-              <h3 class="portfolio-title">Tendencias en remodelacion para el 2026</h3>
-            </div>
-          </div>
-        </article>
-
-        <article class="portfolio-card">
-          <img src="assets/project3-DA-bAdb_.jpg" alt="Mantenimiento de aires acondicionados">
-          <div class="portfolio-content">
-            <div class="portfolio-top">
-              <span class="chip">Guias</span>
-              <span class="portfolio-year">May 2026</span>
-            </div>
-            <div>
-              <h3 class="portfolio-title">Mantenimiento de aires acondicionados: guia rapida</h3>
-            </div>
-          </div>
-        </article>
-      </div>
-
-      <div class="blog-icons-row">
-        <div class="blog-icon-item">
-          <div class="blog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.5.4.8 1 .8 1.6v.5h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0012 3z"/></svg></div>
-          <strong>Consejos practicos</strong>
-          <p>Recomendaciones simples para mantener y mejorar tu propiedad.</p>
+      <div class="blog-bento">
+        <div class="blog-bento-col">
+          <div class="blog-bento-photo tall"><img src="assets/project1-JwGBdFVX.jpg" alt="Como elegir el sistema electrico ideal"></div>
+          <div class="blog-bento-tag yellow">Como elegir el sistema electrico ideal para tu hogar</div>
         </div>
-        <div class="blog-icon-item">
-          <div class="blog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
-          <strong>Tendencias</strong>
-          <p>Lo nuevo en materiales, diseno y eficiencia energetica.</p>
+        <div class="blog-bento-col">
+          <div class="blog-bento-photo"><img src="assets/project2-B4LPRg4v.jpg" alt="Tendencias en remodelacion 2026"></div>
+          <div class="blog-bento-tag red">Tendencias en remodelacion para el 2026</div>
         </div>
-        <div class="blog-icon-item">
-          <div class="blog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="M4 6l1 1 2-2"/><path d="M4 12l1 1 2-2"/><path d="M4 18l1 1 2-2"/></svg></div>
-          <strong>Guias paso a paso</strong>
-          <p>Procesos claros para entender cada etapa de tu proyecto.</p>
+        <div class="blog-bento-col">
+          <div class="blog-bento-photo"><img src="assets/project3-DA-bAdb_.jpg" alt="Mantenimiento de aires acondicionados"></div>
+          <div class="blog-bento-tag dark">Mantenimiento de aires acondicionados: guia rapida</div>
         </div>
       </div>
     </div>

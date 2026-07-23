@@ -12,7 +12,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     :root{
@@ -320,6 +320,16 @@
       height:100%;
       object-fit:cover;
       display:block;
+    }
+
+    .about-photo.about-collage-single{
+      background:#fff;
+      min-height:380px;
+    }
+
+    .about-photo.about-collage-single > img{
+      object-fit:contain;
+      padding:24px;
     }
 
     .about-eyebrow{
@@ -727,17 +737,31 @@
       padding:0;
     }
 
-    .blog-hero-copy{
-      max-width:760px;
-      margin:0 auto 30px;
+    .blog-masthead{
+      max-width:800px;
+      margin:0 auto;
       text-align:center;
     }
 
-    .blog-title{
-      font-size:clamp(2.5rem, 5vw, 4.6rem);
-      line-height:.95;
-      letter-spacing:-.07em;
+    .blog-masthead-top{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      text-transform:uppercase;
+      font-size:11px;
+      letter-spacing:.14em;
+      font-weight:700;
+      color:#8a827a;
+      margin-bottom:14px;
+    }
+
+    .blog-masthead-title{
+      font-family:'Playfair Display', serif;
       font-weight:900;
+      font-size:clamp(3rem, 9vw, 5.6rem);
+      letter-spacing:-.02em;
+      line-height:.9;
       color:var(--light-text);
     }
 
@@ -749,86 +773,120 @@
       color:#6f675f;
     }
 
-    .blog-actions{
-      margin-top:20px;
-      display:flex;
-      justify-content:center;
-      gap:12px;
-      flex-wrap:wrap;
+    .blog-masthead-rules{
+      margin-top:26px;
     }
 
-    .blog-primary-btn{
+    .blog-rule-thick{
+      height:5px;
       background:var(--red);
-      color:#fff;
-      padding:12px 18px;
-      border-radius:999px;
-      font-size:13px;
-      font-weight:700;
     }
 
-    .blog-collage{
+    .blog-rule-thin{
+      height:1px;
+      background:#181311;
+      margin-top:4px;
+      opacity:.7;
+    }
+
+    .blog-news-grid{
       display:grid;
-      grid-template-columns:repeat(5, 1fr);
-      gap:14px;
+      grid-template-columns:1.6fr 1fr 1fr;
+      gap:36px;
+      align-items:start;
+      margin-top:40px;
     }
 
-    .blog-card{
-      position:relative;
-      border-radius:14px;
+    .blog-news-col{
+      display:grid;
+      gap:36px;
+    }
+
+    .blog-story{
+      display:block;
+    }
+
+    .blog-story-photo{
       overflow:hidden;
-      min-height:440px;
-      display:flex;
-      flex-direction:column;
+      margin-bottom:16px;
+      aspect-ratio:16/10;
     }
 
-    .blog-card-spine{
-      padding:20px 16px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      min-height:140px;
-    }
-
-    .blog-card-spine-title{
-      font-size:1.05rem;
-      font-weight:900;
-      line-height:1.15;
-    }
-
-    .blog-card-spine-sub{
-      margin-top:8px;
-      font-size:11.5px;
-      line-height:1.35;
-      opacity:.85;
-    }
-
-    .blog-card-red .blog-card-spine{background:var(--red);color:#fff;}
-    .blog-card-yellow .blog-card-spine{background:var(--yellow);color:#181311;}
-    .blog-card-dark .blog-card-spine{background:#181311;color:#fff;}
-
-    .blog-card-photo{
-      position:relative;
-      flex:1;
-      overflow:hidden;
-    }
-
-    .blog-card-photo img{
-      position:absolute;
-      inset:0;
+    .blog-story-photo img{
       width:100%;
       height:100%;
+      display:block;
       object-fit:cover;
       filter:grayscale(1) contrast(1.05);
+    }
+
+    .blog-eyebrow{
+      display:inline-block;
+      text-transform:uppercase;
+      font-weight:800;
+      font-size:11.5px;
+      letter-spacing:.08em;
+      padding-bottom:8px;
+      border-bottom:2px solid currentColor;
+      margin-bottom:12px;
+    }
+
+    .blog-story-red .blog-eyebrow{color:var(--red);}
+    .blog-story-yellow .blog-eyebrow{color:#a3790f;}
+    .blog-story-dark .blog-eyebrow{color:#181311;}
+
+    .blog-story-title{
+      font-family:'Playfair Display', serif;
+      font-weight:800;
+      line-height:1.08;
+      letter-spacing:-.01em;
+      color:#181311;
+    }
+
+    .blog-feature .blog-story-title{
+      font-size:clamp(1.7rem, 2.6vw, 2.5rem);
+    }
+
+    .blog-story-sm .blog-story-title{
+      font-size:1.2rem;
+    }
+
+    .blog-story-excerpt{
+      max-height:0;
+      opacity:0;
+      overflow:hidden;
+      margin-top:0;
+      font-size:14px;
+      line-height:1.55;
+      color:#57514a;
+      transition:max-height .35s ease, opacity .3s ease, margin-top .35s ease;
+    }
+
+    .blog-story:hover .blog-story-excerpt{
+      max-height:220px;
+      opacity:1;
+      margin-top:10px;
+    }
+
+    .blog-more-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      margin-top:14px;
+      font-weight:800;
+      font-size:13px;
+      color:var(--red);
     }
 
     
 
     @media (max-width: 1100px){
-      .blog-collage{
-        grid-template-columns:repeat(2,1fr);
+      .blog-news-grid{
+        grid-template-columns:1fr;
       }
-      .blog-card{
-        min-height:340px;
+      .blog-news-col{
+        grid-template-columns:1fr 1fr;
+        display:grid;
       }
     }
 
@@ -836,17 +894,14 @@
       .blog-showcase{
         padding:72px 0 56px;
       }
-      .blog-title{
-        font-size:clamp(2.2rem, 10vw, 3.4rem);
+      .blog-masthead-title{
+        font-size:clamp(2.4rem, 14vw, 3.4rem);
       }
       .blog-subtitle{
         font-size:1rem;
       }
-      .blog-collage{
+      .blog-news-col{
         grid-template-columns:1fr;
-      }
-      .blog-card{
-        min-height:300px;
       }
     }
 .process-light{
@@ -879,6 +934,27 @@
     .process-card-red{background:var(--red);color:#fff;}
     .process-card-yellow{background:var(--yellow);color:#181311;}
     .process-card-dark{background:#181311;color:#fff;}
+
+    .process-cards-photo{
+      gap:0;
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .process-photo-card{
+      position:relative;
+      min-height:420px;
+      overflow:hidden;
+    }
+
+    .process-photo-card img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
 
     .process-card-top{
       display:flex;
@@ -1332,19 +1408,8 @@
   <section id="acerca" class="section about-section">
     <div class="container">
       <div class="about-intro">
-        <div class="about-photo about-collage">
-          <div class="collage-panel c-red">
-            <img src="https://images.pexels.com/photos/17362827/pexels-photo-17362827.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Equipo Grupo C&amp;E">
-          </div>
-          <div class="collage-panel c-yellow">
-            <img src="https://images.pexels.com/photos/8067899/pexels-photo-8067899.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Equipo Grupo C&amp;E">
-          </div>
-          <div class="collage-panel c-red">
-            <img src="https://images.pexels.com/photos/8068725/pexels-photo-8068725.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Equipo Grupo C&amp;E">
-          </div>
-          <div class="collage-panel c-yellow">
-            <img src="https://images.pexels.com/photos/3778603/pexels-photo-3778603.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Equipo Grupo C&amp;E">
-          </div>
+        <div class="about-photo about-collage-single">
+          <img src="Media/Carpeta/1.png" alt="Equipo Grupo C&amp;E">
         </div>
         <div class="about-text">
           <span class="about-eyebrow">Quienes somos</span>
@@ -1456,42 +1521,11 @@
         <h2 class="process-main-title">Cómo trabajamos</h2>
       </div>
 
-      <div class="process-cards">
-        <div class="process-card process-card-red">
-          <div class="process-card-top">
-            <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.35-4.35"/></svg></div>
-            <span class="process-num">01</span>
-          </div>
-          <h3 class="process-title">Diagnóstico</h3>
-          <p class="process-text">Visita técnica y levantamiento en 48h</p>
-        </div>
-
-        <div class="process-card process-card-dark">
-          <div class="process-card-top">
-            <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l5 5v13H7z"/><path d="M15 3v5h5"/><path d="M9.5 13h6M9.5 17h6"/></svg></div>
-            <span class="process-num">02</span>
-          </div>
-          <h3 class="process-title">Propuesta</h3>
-          <p class="process-text">Cotización detallada por partidas</p>
-        </div>
-
-        <div class="process-card process-card-yellow">
-          <div class="process-card-top">
-            <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 00-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 005.4-5.4l-2.3 2.3a2 2 0 01-2.8 0l-1-1a2 2 0 010-2.8z"/></svg></div>
-            <span class="process-num">03</span>
-          </div>
-          <h3 class="process-title">Ejecución</h3>
-          <p class="process-text">Cuadrilla propia. Bitácora semanal</p>
-        </div>
-
-        <div class="process-card process-card-dark">
-          <div class="process-card-top">
-            <div class="process-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg></div>
-            <span class="process-num">04</span>
-          </div>
-          <h3 class="process-title">Entrega</h3>
-          <p class="process-text">Pruebas, planos as-built y garantía</p>
-        </div>
+      <div class="process-cards process-cards-photo">
+        <div class="process-photo-card"><img src="Media/Carpeta/2.png" alt="Paso 1: Diagnóstico - Visita técnica y levantamiento en 48h"></div>
+        <div class="process-photo-card"><img src="Media/Carpeta/3.png" alt="Paso 2: Propuesta - Cotización detallada por partidas"></div>
+        <div class="process-photo-card"><img src="Media/Carpeta/4.png" alt="Paso 3: Ejecución - Cuadrilla propia, reporte semanal"></div>
+        <div class="process-photo-card"><img src="Media/Carpeta/5.png" alt="Paso 4: Entrega - Pruebas, planos as-built y garantía"></div>
       </div>
     </div>
   </section>
@@ -1522,70 +1556,67 @@
   <section id="blog" class="blog-showcase">
   <div class="container">
     <div class="blog-shell">
-      <div class="blog-hero-copy">
-        <h2 class="blog-title">
-          Una obra bien hecha<br>
-          Un solo equipo<br>
-          Un mejor resultado
-        </h2>
+      <div class="blog-masthead">
+        <div class="blog-masthead-top">
+          <span>Construcción</span>
+          <span>Electricidad</span>
+          <span>Remodelación</span>
+          <span>Jardinería</span>
+        </div>
+        <h2 class="blog-masthead-title">NÚCLEO</h2>
         <p class="blog-subtitle">
           Compartimos avances, procesos y resultados de construcción, electricidad,
           AC y jardinería con una ejecución limpia, clara y profesional.
         </p>
-        <div class="blog-actions">
-          <a href="#proyectos" class="blog-primary-btn">Ver más</a>
+        <div class="blog-masthead-rules">
+          <div class="blog-rule-thick"></div>
+          <div class="blog-rule-thin"></div>
         </div>
       </div>
-      <div class="blog-collage">
-        <article class="blog-card blog-card-red">
-          <div class="blog-card-spine">
-            <div class="blog-card-spine-title">Nuestro equipo</div>
-            <div class="blog-card-spine-sub">Profesionales capacitados y comprometidos</div>
-          </div>
-          <div class="blog-card-photo">
-            <img src="https://images.pexels.com/photos/18111488/pexels-photo-18111488.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Equipo de trabajo de NÚCLEO">
-          </div>
+      <div class="blog-news-grid">
+        <article class="blog-story blog-story-red">
+          <div class="blog-story-photo"><img src="https://images.pexels.com/photos/18111488/pexels-photo-18111488.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Nuestro equipo"></div>
+          <span class="blog-eyebrow">Nuestro equipo</span>
+          <h3 class="blog-story-title">Profesionales capacitados detrás de cada proyecto</h3>
+          <p class="blog-story-excerpt">Cada obra es liderada por un equipo técnico propio, sin subcontratos improvisados. Coordinamos construcción, electricidad, clima y jardinería bajo un mismo criterio de calidad y comunicación constante con el cliente.</p>
+          <a href="#proyectos" class="blog-more-btn">Ver más &rarr;</a>
         </article>
-        <article class="blog-card blog-card-yellow">
-          <div class="blog-card-spine">
-            <div class="blog-card-spine-title">Remodelación</div>
-            <div class="blog-card-spine-sub">Espacios renovados con precisión y estilo</div>
-          </div>
-          <div class="blog-card-photo">
-            <img src="https://images.pexels.com/photos/5691548/pexels-photo-5691548.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trabajo de remodelación">
-          </div>
+        <div class="blog-news-col">
+          <article class="blog-story blog-story-yellow blog-story-sm">
+          <div class="blog-story-photo"><img src="https://images.pexels.com/photos/5691548/pexels-photo-5691548.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trabajo de remodelación"></div>
+          <span class="blog-eyebrow">Remodelación</span>
+          <h3 class="blog-story-title">Espacios renovados con precisión y estilo</h3>
+          <p class="blog-story-excerpt">Transformamos ambientes existentes cuidando cada detalle, desde la demolición controlada hasta los acabados finales, respetando siempre los tiempos y el presupuesto acordado.</p>
+          <a href="#proyectos" class="blog-more-btn">Ver más &rarr;</a>
         </article>
-        <article class="blog-card blog-card-dark">
-          <div class="blog-card-spine">
-            <div class="blog-card-spine-title">Electricidad</div>
-            <div class="blog-card-spine-sub">Instalaciones seguras y certificadas</div>
-          </div>
-          <div class="blog-card-photo">
-            <img src="https://images.pexels.com/photos/33694016/pexels-photo-33694016.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trabajo eléctrico">
-          </div>
+          <article class="blog-story blog-story-dark blog-story-sm">
+          <div class="blog-story-photo"><img src="https://images.pexels.com/photos/33694016/pexels-photo-33694016.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trabajo eléctrico"></div>
+          <span class="blog-eyebrow">Electricidad</span>
+          <h3 class="blog-story-title">Instalaciones seguras y certificadas</h3>
+          <p class="blog-story-excerpt">Cada circuito y tablero se dimensiona según norma, con pruebas de carga y protecciones adecuadas para uso residencial y comercial.</p>
+          <a href="#proyectos" class="blog-more-btn">Ver más &rarr;</a>
         </article>
-        <article class="blog-card blog-card-yellow">
-          <div class="blog-card-spine">
-            <div class="blog-card-spine-title">Jardinería</div>
-            <div class="blog-card-spine-sub">Diseño y mantenimiento de áreas verdes</div>
-          </div>
-          <div class="blog-card-photo">
-            <img src="https://images.pexels.com/photos/32427439/pexels-photo-32427439.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trabajo de jardinería">
-          </div>
+        </div>
+        <div class="blog-news-col">
+          <article class="blog-story blog-story-yellow blog-story-sm">
+          <div class="blog-story-photo"><img src="https://images.pexels.com/photos/32427439/pexels-photo-32427439.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Trabajo de jardinería"></div>
+          <span class="blog-eyebrow">Jardinería</span>
+          <h3 class="blog-story-title">Diseño y mantenimiento de áreas verdes</h3>
+          <p class="blog-story-excerpt">Planificamos zonas verdes funcionales y de bajo mantenimiento, con sistemas de riego eficientes y especies adaptadas al clima local.</p>
+          <a href="#proyectos" class="blog-more-btn">Ver más &rarr;</a>
         </article>
-        <article class="blog-card blog-card-red">
-          <div class="blog-card-spine">
-            <div class="blog-card-spine-title">Proyectos</div>
-            <div class="blog-card-spine-sub">Resultados que hablan por sí solos</div>
-          </div>
-          <div class="blog-card-photo">
-            <img src="https://images.pexels.com/photos/12314551/pexels-photo-12314551.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Proyecto ejecutado por NÚCLEO">
-          </div>
+          <article class="blog-story blog-story-red blog-story-sm">
+          <div class="blog-story-photo"><img src="https://images.pexels.com/photos/12314551/pexels-photo-12314551.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Proyecto ejecutado por NÚCLEO"></div>
+          <span class="blog-eyebrow">Proyectos</span>
+          <h3 class="blog-story-title">Resultados que hablan por sí solos</h3>
+          <p class="blog-story-excerpt">Cada entrega incluye pruebas finales, planos as-built y garantía escrita, documentando el trabajo realizado para tranquilidad total del cliente.</p>
+          <a href="#proyectos" class="blog-more-btn">Ver más &rarr;</a>
         </article>
+        </div>
       </div>
     </div>
   </div>
-</section><section id="contacto" class="section contact">
+  </section><section id="contacto" class="section contact">
     <div class="container">
       <div class="contact-grid">
         <h2 class="contact-title">Tu próxima obra<br>empieza aquí</h2>

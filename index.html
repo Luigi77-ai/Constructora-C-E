@@ -277,6 +277,7 @@
     }
 
     .about-photo{
+      position:relative;
       border-radius:24px;
       overflow:hidden;
       box-shadow:var(--shadow);
@@ -285,6 +286,8 @@
     }
 
     .about-photo img{
+      position:absolute;
+      inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
@@ -302,10 +305,10 @@
     }
 
     .about-heading{
-      font-size:clamp(2.4rem,5vw,3.6rem);
-      font-weight:900;
-      letter-spacing:-.03em;
-      line-height:1.05;
+      font-size:clamp(2.2rem,4.4vw,3.2rem);
+      font-weight:800;
+      letter-spacing:-.01em;
+      line-height:1.15;
       color:var(--light-text);
     }
 
@@ -314,6 +317,7 @@
       font-size:1.05rem;
       color:#6f655a;
       line-height:1.6;
+      text-align:center;
     }
 
     .about-columns{
@@ -749,6 +753,8 @@
     }
 
     .blog-card img{
+      position:absolute;
+      inset:0;
       width:100%;
       height:100%;
       object-fit:cover;
@@ -829,55 +835,8 @@
       }
     }
 .process-light{
-      position:relative;
-      overflow:hidden;
-      background:#14100f;
-      color:#fff;
-    }
-
-    .process-bg{
-      position:absolute;
-      inset:0;
-      z-index:0;
-    }
-
-    .process-bg img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      opacity:0;
-      animation:processBgFade 12s infinite;
-    }
-
-    .process-bg img:nth-child(1){ animation-delay:0s; }
-    .process-bg img:nth-child(2){ animation-delay:4s; }
-    .process-bg img:nth-child(3){ animation-delay:8s; }
-
-    @keyframes processBgFade{
-      0%{opacity:0;}
-      4%{opacity:1;}
-      29%{opacity:1;}
-      33%{opacity:0;}
-      100%{opacity:0;}
-    }
-
-    .process-overlay{
-      position:absolute;
-      inset:0;
-      background:rgba(10,8,7,.74);
-      z-index:1;
-    }
-
-    .process-grid{
-      position:relative;
-      z-index:2;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:36px;
-      padding:96px 0;
+      background:#fff;
+      color:#181311;
     }
 
     .process-copy{
@@ -888,13 +847,15 @@
       width:100%;
       display:grid;
       grid-template-columns:repeat(4, 1fr);
-      gap:1px;
-      background:rgba(255,255,255,.14);
+      gap:16px;
     }
 
     .process-card{
-      background:transparent;
-      min-height:170px;
+      position:relative;
+      overflow:hidden;
+      border-radius:16px;
+      background:#f2ede4;
+      min-height:200px;
       padding:22px 16px;
       display:flex;
       flex-direction:column;
@@ -904,24 +865,51 @@
       gap:6px;
     }
 
+    .process-card-bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+
+    .process-card-bg img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:blur(4px) brightness(1.05) saturate(1.05);
+      transform:scale(1.1);
+    }
+
+    .process-card-overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(255,255,255,.66);
+      z-index:1;
+    }
+
     .process-num{
+      position:relative;
+      z-index:2;
       font-size:2.1rem;
       font-weight:900;
       letter-spacing:-.05em;
-      color:var(--yellow-soft);
+      color:var(--red);
       line-height:.9;
     }
 
     .process-title{
+      position:relative;
+      z-index:2;
       font-size:1.1rem;
       font-weight:900;
-      color:#fff;
+      color:#181311;
     }
 
     .process-text{
+      position:relative;
+      z-index:2;
       margin-top:4px;
       font-size:12.5px;
-      color:rgba(255,255,255,.75);
+      color:#4a433c;
     }
 
     .process-main-title{
@@ -932,7 +920,8 @@
     }
 
     .contact{
-      background:linear-gradient(135deg,var(--red) 0%, var(--red-dark) 38%, var(--yellow) 100%);
+      position:relative;
+      background:linear-gradient(rgba(10,8,7,.60), rgba(10,8,7,.80)), url('https://images.pexels.com/photos/13863671/pexels-photo-13863671.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
       color:#fff;
       border-top:1px solid rgba(255,255,255,.12);
     }
@@ -1277,7 +1266,7 @@
     <div class="container">
       <div class="about-intro">
         <div class="about-photo">
-          <img src="assets/about-empresa-1.jpg" alt="Equipo Grupo C&amp;E">
+          <img src="https://images.pexels.com/photos/18111488/pexels-photo-18111488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Equipo Grupo C&amp;E">
         </div>
         <div class="about-text">
           <span class="about-eyebrow">Quienes somos</span>
@@ -1344,35 +1333,35 @@
 
       <div class="services-grid">
         <article class="service-card large">
-          <img src="assets/servicio-construccion.jpg" alt="Construcción">
+          <img src="https://images.pexels.com/photos/12314551/pexels-photo-12314551.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Construcción">
           <div class="service-content">
             <h3 class="service-title">Construcción</h3>
           </div>
         </article>
 
         <article class="service-card span-2">
-          <img src="assets/servicio-remodelacion.jpg" alt="Remodelación">
+          <img src="https://images.pexels.com/photos/5691548/pexels-photo-5691548.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Remodelación">
           <div class="service-content">
             <h3 class="service-title">Remodelación</h3>
           </div>
         </article>
 
         <article class="service-card span-2">
-          <img src="assets/servicio-electricidad.jpg" alt="Electricidad">
+          <img src="https://images.pexels.com/photos/33694016/pexels-photo-33694016.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Electricidad">
           <div class="service-content">
             <h3 class="service-title">Electricidad</h3>
           </div>
         </article>
 
         <article class="service-card span-2">
-          <img src="assets/servicio-ac.jpg" alt="AC">
+          <img src="https://images.pexels.com/photos/5463576/pexels-photo-5463576.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="AC">
           <div class="service-content">
             <h3 class="service-title">AC</h3>
           </div>
         </article>
 
         <article class="service-card span-2">
-          <img src="assets/servicio-jardineria.jpg" alt="Jardinería">
+          <img src="https://images.pexels.com/photos/32427439/pexels-photo-32427439.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Jardinería">
           <div class="service-content">
             <h3 class="service-title">Jardinería</h3>
           </div>
@@ -1386,18 +1375,14 @@
   <section id="proceso" class="section process-light">
     <div class="container">
       <div class="process-grid">
-        <div class="process-bg">
-          <img src="assets/servicio-construccion.jpg" alt="" />
-          <img src="assets/servicio-jardineria.jpg" alt="" />
-          <img src="assets/servicio-electricidad.jpg" alt="" />
-        </div>
-        <div class="process-overlay"></div>
         <div class="process-copy">
           <h2 class="process-main-title">Cómo trabajamos</h2>
         </div>
 
         <div class="process-cards">
           <div class="process-card">
+            <div class="process-card-bg"><img src="https://images.pexels.com/photos/12314551/pexels-photo-12314551.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" /></div>
+            <div class="process-card-overlay"></div>
             <div class="process-num">01</div>
             <div>
               <h3 class="process-title">Diagnóstico</h3>
@@ -1406,6 +1391,8 @@
           </div>
 
           <div class="process-card">
+            <div class="process-card-bg"><img src="https://images.pexels.com/photos/34573691/pexels-photo-34573691.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" /></div>
+            <div class="process-card-overlay"></div>
             <div class="process-num">02</div>
             <div>
               <h3 class="process-title">Propuesta</h3>
@@ -1414,6 +1401,8 @@
           </div>
 
           <div class="process-card">
+            <div class="process-card-bg"><img src="https://images.pexels.com/photos/33694016/pexels-photo-33694016.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" /></div>
+            <div class="process-card-overlay"></div>
             <div class="process-num">03</div>
             <div>
               <h3 class="process-title">Ejecución</h3>
@@ -1422,6 +1411,8 @@
           </div>
 
           <div class="process-card">
+            <div class="process-card-bg"><img src="https://images.pexels.com/photos/5463576/pexels-photo-5463576.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="" /></div>
+            <div class="process-card-overlay"></div>
             <div class="process-num">04</div>
             <div>
               <h3 class="process-title">Entrega</h3>
@@ -1475,26 +1466,26 @@
       </div>
       <div class="blog-collage">
         <article class="blog-card blog-card-tall">
-          <img src="assets/about-empresa-1.jpg" alt="Equipo de trabajo de NÚCLEO" />
+          <img src="https://images.pexels.com/photos/18111488/pexels-photo-18111488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Equipo de trabajo de NÚCLEO" />
           <div class="blog-card-caption blog-card-caption-green">
             Más que contratistas, somos un equipo que ejecuta con orden y compromiso.
           </div>
         </article>
         <article class="blog-card">
-          <img src="assets/servicio-remodelacion.jpg" alt="Trabajo de remodelación" />
+          <img src="https://images.pexels.com/photos/5691548/pexels-photo-5691548.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Trabajo de remodelación" />
         </article>
         <article class="blog-card">
-          <img src="assets/servicio-electricidad.jpg" alt="Trabajo eléctrico" />
+          <img src="https://images.pexels.com/photos/33694016/pexels-photo-33694016.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Trabajo eléctrico" />
         </article>
         <article class="blog-card">
-          <img src="assets/servicio-jardineria.jpg" alt="Trabajo de jardinería" />
+          <img src="https://images.pexels.com/photos/32427439/pexels-photo-32427439.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Trabajo de jardinería" />
           <div class="blog-card-overlay">
             Convertimos ideas en espacios funcionales y bien terminados.
           </div>
         </article>
         <article class="blog-card blog-card-tall">
           <div class="blog-card-badge">NÚCLEO</div>
-          <img src="assets/servicio-construccion.jpg" alt="Proyecto ejecutado por NÚCLEO" />
+          <img src="https://images.pexels.com/photos/12314551/pexels-photo-12314551.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Proyecto ejecutado por NÚCLEO" />
           <div class="blog-card-caption blog-card-caption-green">
             Construimos soluciones completas para hogares, comercios y empresas.
           </div>

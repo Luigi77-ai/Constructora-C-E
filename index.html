@@ -212,6 +212,8 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
+      text-align:center;
     }
 
     .hero-grid-box .num{
@@ -281,53 +283,38 @@
       color:var(--light-text);
     }
 
-    .about-sub{
-      margin-top:18px;
-      font-size:1.05rem;
-      color:#6f655a;
-      max-width:56ch;
-      margin-inline:auto;
+    .about-sub{ display:none; }
+
+    .about-header .btn{ display:none; }
+
+    .about-bento{
+      display:grid;
+      grid-template-columns:repeat(4, 1fr);
+      grid-auto-rows:130px;
+      grid-auto-flow:dense;
+      gap:14px;
+      max-width:1100px;
+      margin:0 auto 64px;
     }
 
-    .about-header .btn{
-      margin-top:28px;
-    }
-
-    .about-fan{
-      display:flex;
-      justify-content:center;
-      align-items:flex-end;
-      margin:0 0 64px;
-    }
-
-    .about-fan-item{
-      width:120px;
-      height:160px;
+    .about-bento-item{
       border-radius:20px;
       overflow:hidden;
       box-shadow:var(--shadow);
-      flex-shrink:0;
       background:#eee;
     }
 
-    .about-fan-item + .about-fan-item{
-      margin-left:-22px;
+    .about-bento-item.feature{
+      grid-column:span 2;
+      grid-row:span 2;
     }
 
-    .about-fan-item img{
+    .about-bento-item img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
     }
-
-    .about-fan-item:nth-child(1){ transform:rotate(-16deg) translateY(26px); z-index:1; }
-    .about-fan-item:nth-child(2){ transform:rotate(-9deg) translateY(12px); z-index:2; }
-    .about-fan-item:nth-child(3){ transform:rotate(-3deg) translateY(2px); z-index:3; }
-    .about-fan-item:nth-child(4){ transform:translateY(-12px); z-index:4; width:150px; height:200px; }
-    .about-fan-item:nth-child(5){ transform:rotate(3deg) translateY(2px); z-index:3; }
-    .about-fan-item:nth-child(6){ transform:rotate(9deg) translateY(12px); z-index:2; }
-    .about-fan-item:nth-child(7){ transform:rotate(16deg) translateY(26px); z-index:1; }
 
     .about-columns{
       display:grid;
@@ -335,16 +322,30 @@
       gap:32px;
       max-width:1100px;
       margin-inline:auto;
+      text-align:center;
     }
 
     .about-col{
-      padding-left:20px;
-      border-left:1px solid rgba(0,0,0,.1);
+      padding-left:0;
+      border-left:none;
     }
 
     .about-col:first-child{
       border-left:none;
       padding-left:0;
+    }
+
+    .about-col-icon{
+      width:46px;
+      height:46px;
+      margin:0 auto 14px;
+      color:var(--red);
+    }
+
+    .about-col-icon svg{
+      width:100%;
+      height:100%;
+      display:block;
     }
 
     .about-col h3{
@@ -359,11 +360,11 @@
       line-height:1.55;
     }
 
-    brand-strip{
+    .brand-strip{
       padding:28px 0;
-      background:linear-gradient(180deg, #18120f 0%, #211916 100%);
-      border-top:1px solid rgba(255,255,255,.06);
-      border-bottom:1px solid rgba(255,255,255,.06);
+      background:#fff;
+      border-top:1px solid rgba(0,0,0,.08);
+      border-bottom:1px solid rgba(0,0,0,.08);
       overflow:hidden;
     }
 
@@ -406,9 +407,7 @@
     }
 
     .brand-item span{
-      font-size:1.55rem;
-      font-weight:900;
-      letter-spacing:-.04em;
+      display:none;
     }
 
     .brand-fade-left,
@@ -423,12 +422,12 @@
 
     .brand-fade-left{
       left:0;
-      background:linear-gradient(to right, #18120f, transparent);
+      background:linear-gradient(to right, #fff, transparent);
     }
 
     .brand-fade-right{
       right:0;
-      background:linear-gradient(to left, #211916, transparent);
+      background:linear-gradient(to left, #fff, transparent);
     }
 
     @keyframes brandScroll{
@@ -684,6 +683,51 @@
       font-size:1.7rem;
       font-weight:900;
       letter-spacing:-.04em;
+    }
+
+    .blog-sub{
+      margin-top:10px;
+      font-size:1rem;
+      color:#6f655a;
+      max-width:60ch;
+    }
+
+    .blog-icons-row{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+      margin-top:40px;
+      padding-top:32px;
+      border-top:1px solid rgba(0,0,0,.08);
+    }
+
+    .blog-icon-item{
+      text-align:left;
+    }
+
+    .blog-icon{
+      width:40px;
+      height:40px;
+      color:var(--red);
+      margin-bottom:12px;
+    }
+
+    .blog-icon svg{
+      width:100%;
+      height:100%;
+      display:block;
+    }
+
+    .blog-icon-item strong{
+      display:block;
+      font-size:1.05rem;
+      margin-bottom:6px;
+    }
+
+    .blog-icon-item p{
+      font-size:.92rem;
+      color:#6f655a;
+      line-height:1.55;
     }
 
     .process-light{
@@ -1051,7 +1095,7 @@
         <a href="#contacto">Contacto</a>
       </nav>
 
-      <a href="#contacto" class="btn">Cotizar →</a>
+      <a href="#contacto" class="btn" style="background:var(--yellow);color:#18120f;">Cotizar →</a>
     </div>
   </header>
 
@@ -1100,30 +1144,32 @@
     <div class="container">
       <div class="about-header">
         <h2 class="about-heading">Un equipo completo<br>para tu proxima obra</h2>
-        <p class="about-sub">En NUCLEO integramos construccion, remodelacion, electricidad, AC y jardineria bajo una misma coordinacion tecnica, con cuadrilla propia y atencion cercana de principio a fin.</p>
-        <a href="#contacto" class="btn">Cotizar ahora &#8594;</a>
+        
       </div>
 
-      <div class="about-fan">
-        <div class="about-fan-item"><img src="assets/servicio-remodelacion.jpg" alt="Remodelacion"></div>
-        <div class="about-fan-item"><img src="assets/about-empresa-1.jpg" alt="Equipo de trabajo"></div>
-        <div class="about-fan-item"><img src="assets/servicio-electricidad.jpg" alt="Electricidad"></div>
-        <div class="about-fan-item"><img src="assets/about-empresa-2.jpg" alt="Proyecto ejecutado"></div>
-        <div class="about-fan-item"><img src="assets/servicio-ac.jpg" alt="AC"></div>
-        <div class="about-fan-item"><img src="assets/servicio-jardineria.jpg" alt="Jardineria"></div>
-        <div class="about-fan-item"><img src="assets/servicio-construccion.jpg" alt="Construccion"></div>
+      <div class="about-bento">
+        <div class="about-bento-item feature"><img src="assets/about-empresa-1.jpg" alt="Equipo de trabajo"></div>
+        <div class="about-bento-item"><img src="assets/servicio-remodelacion.jpg" alt="Remodelacion"></div>
+        <div class="about-bento-item"><img src="assets/servicio-electricidad.jpg" alt="Electricidad"></div>
+        <div class="about-bento-item"><img src="assets/about-empresa-2.jpg" alt="Proyecto ejecutado"></div>
+        <div class="about-bento-item"><img src="assets/servicio-ac.jpg" alt="AC"></div>
+        <div class="about-bento-item"><img src="assets/servicio-jardineria.jpg" alt="Jardineria"></div>
+        <div class="about-bento-item"><img src="assets/servicio-construccion.jpg" alt="Construccion"></div>
       </div>
 
       <div class="about-columns">
         <div class="about-col">
+          <div class="about-col-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9"/></svg></div>
           <h3>Coordinacion total</h3>
           <p>Un mismo equipo tecnico supervisa cada etapa, desde el diagnostico hasta la entrega final.</p>
         </div>
         <div class="about-col">
+          <div class="about-col-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.5" cy="8" r="2.6"/><path d="M3.5 19c0-3 2.2-5 5-5s5 2 5 5"/><circle cx="16.5" cy="8.5" r="2.1"/><path d="M14.8 14.2c2.4.2 4.2 2 4.2 4.8"/></svg></div>
           <h3>Cuadrilla propia</h3>
           <p>Personal directo y capacitado en cada disciplina, sin subcontrataciones improvisadas.</p>
         </div>
         <div class="about-col">
+          <div class="about-col-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10"/><path d="M12 20V4"/><path d="M20 20v-7"/><path d="M2 20h20"/></svg></div>
           <h3>Resultados medibles</h3>
           <p>Bitacoras semanales, pruebas finales y garantia por escrito en cada proyecto entregado.</p>
         </div>
@@ -1211,7 +1257,7 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2 class="section-title">15 años Números que respaldan</h2>
+          <h2 class="section-title">Números que respaldan</h2>
         </div>
       </div>
 
@@ -1247,7 +1293,7 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Nuestro trabajo</h2>
+          <h2 class="section-title" style="color:#fff;">Nuestro trabajo</h2>
         </div>
       </div>
 
@@ -1270,7 +1316,8 @@
     <div class="container">
       <div class="section-head">
         <div>
-          <h2 class="section-title">Blog</h2>
+          <h2 class="section-title">Ideas y novedades</h2>
+          <p class="blog-sub">Consejos practicos, tendencias del sector y guias paso a paso para tu proximo proyecto.</p>
         </div>
       </div>
 
@@ -1313,6 +1360,24 @@
             </div>
           </div>
         </article>
+      </div>
+
+      <div class="blog-icons-row">
+        <div class="blog-icon-item">
+          <div class="blog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 00-3.5 10.9c.5.4.8 1 .8 1.6v.5h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0012 3z"/></svg></div>
+          <strong>Consejos practicos</strong>
+          <p>Recomendaciones simples para mantener y mejorar tu propiedad.</p>
+        </div>
+        <div class="blog-icon-item">
+          <div class="blog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div>
+          <strong>Tendencias</strong>
+          <p>Lo nuevo en materiales, diseno y eficiencia energetica.</p>
+        </div>
+        <div class="blog-icon-item">
+          <div class="blog-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h11"/><path d="M9 12h11"/><path d="M9 18h11"/><path d="M4 6l1 1 2-2"/><path d="M4 12l1 1 2-2"/><path d="M4 18l1 1 2-2"/></svg></div>
+          <strong>Guias paso a paso</strong>
+          <p>Procesos claros para entender cada etapa de tu proyecto.</p>
+        </div>
       </div>
     </div>
   </section><section id="proceso" class="section process-light">

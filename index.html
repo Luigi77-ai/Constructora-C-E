@@ -237,7 +237,6 @@
     .section-light{
       background:var(--light);
       color:var(--light-text);
-      border-bottom:1px solid rgba(0,0,0,.08);
     }
 
     .section-head{
@@ -310,6 +309,7 @@
       letter-spacing:-.01em;
       line-height:1.15;
       color:var(--light-text);
+      text-align:center;
     }
 
     .about-desc{
@@ -709,7 +709,7 @@
       line-height:.95;
       letter-spacing:-.07em;
       font-weight:900;
-      color:#222633;
+      color:var(--light-text);
     }
 
     .blog-subtitle{
@@ -729,7 +729,7 @@
     }
 
     .blog-primary-btn{
-      background:#f58a1f;
+      background:var(--red);
       color:#fff;
       padding:12px 18px;
       border-radius:999px;
@@ -778,6 +778,29 @@
     .blog-card-caption-green{
       background:#63bb58;
       color:#fff;
+    }
+
+    .blog-card-tag{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:10px 14px;
+      font-size:.82rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+      text-align:center;
+    }
+
+    .blog-card-tag-red{
+      background:var(--red);
+      color:#fff;
+    }
+
+    .blog-card-tag-yellow{
+      background:var(--yellow);
+      color:#181311;
     }
 
     .blog-card-overlay{
@@ -841,6 +864,7 @@
 
     .process-copy{
       text-align:center;
+      margin-bottom:28px;
     }
 
     .process-cards{
@@ -915,13 +939,14 @@
     .process-main-title{
       font-size:clamp(1.6rem,2.8vw,2.2rem);
       font-weight:900;
-      line-height:1;
+      line-height:1.2;
       letter-spacing:-.04em;
+      color:var(--red);
     }
 
     .contact{
       position:relative;
-      background:linear-gradient(rgba(10,8,7,.60), rgba(10,8,7,.80)), url('https://images.pexels.com/photos/13863671/pexels-photo-13863671.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      background:linear-gradient(rgba(10,8,7,.30), rgba(10,8,7,.48)), url('https://images.pexels.com/photos/13863671/pexels-photo-13863671.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
       color:#fff;
       border-top:1px solid rgba(255,255,255,.12);
     }
@@ -1000,10 +1025,10 @@
     }
 
     .contact-form-section{
-      background:#fff;
-      color:var(--light-text);
-      border-top:1px solid rgba(0,0,0,.08);
-      border-bottom:1px solid rgba(0,0,0,.08);
+      position:relative;
+      background:linear-gradient(rgba(10,8,7,.35), rgba(10,8,7,.55)), url('https://images.pexels.com/photos/13863671/pexels-photo-13863671.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      color:#fff;
+      border-top:1px solid rgba(255,255,255,.12);
     }
 
     #formulario-contacto{
@@ -1427,8 +1452,8 @@
   <section class="section section-dark">
     <div class="container">
       <div class="section-head">
-        <div>
-          <h2 class="section-title" style="color:#fff;">Nuestro trabajo</h2>
+        <div style="width:100%;">
+          <h2 class="section-title center" style="color:#fff;">Nuestro trabajo</h2>
         </div>
       </div>
 
@@ -1452,8 +1477,8 @@
     <div class="blog-shell">
       <div class="blog-hero-copy">
         <h2 class="blog-title">
-          Una obra bien hecha.<br>
-          Un solo equipo.<br>
+          Una obra bien hecha<br>
+          Un solo equipo<br>
           Un mejor resultado
         </h2>
         <p class="blog-subtitle">
@@ -1467,28 +1492,24 @@
       <div class="blog-collage">
         <article class="blog-card blog-card-tall">
           <img src="https://images.pexels.com/photos/18111488/pexels-photo-18111488.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Equipo de trabajo de NÚCLEO" />
-          <div class="blog-card-caption blog-card-caption-green">
-            Más que contratistas, somos un equipo que ejecuta con orden y compromiso.
-          </div>
+          <div class="blog-card-tag blog-card-tag-red">Nuestro equipo</div>
         </article>
         <article class="blog-card">
           <img src="https://images.pexels.com/photos/5691548/pexels-photo-5691548.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Trabajo de remodelación" />
+          <div class="blog-card-tag blog-card-tag-yellow">Remodelación</div>
         </article>
         <article class="blog-card">
           <img src="https://images.pexels.com/photos/33694016/pexels-photo-33694016.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Trabajo eléctrico" />
+          <div class="blog-card-tag blog-card-tag-red">Electricidad</div>
         </article>
         <article class="blog-card">
           <img src="https://images.pexels.com/photos/32427439/pexels-photo-32427439.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Trabajo de jardinería" />
-          <div class="blog-card-overlay">
-            Convertimos ideas en espacios funcionales y bien terminados.
-          </div>
+          <div class="blog-card-tag blog-card-tag-yellow">Jardinería</div>
         </article>
         <article class="blog-card blog-card-tall">
           <div class="blog-card-badge">NÚCLEO</div>
           <img src="https://images.pexels.com/photos/12314551/pexels-photo-12314551.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Proyecto ejecutado por NÚCLEO" />
-          <div class="blog-card-caption blog-card-caption-green">
-            Construimos soluciones completas para hogares, comercios y empresas.
-          </div>
+          <div class="blog-card-tag blog-card-tag-red">Proyectos</div>
         </article>
       </div>
     </div>

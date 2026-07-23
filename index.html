@@ -92,6 +92,17 @@
       flex:0 0 auto;
     }
 
+    .footer-logo-img{
+      height:34px;
+      width:auto;
+      display:block;
+      border-radius:6px;
+    }
+
+    .footer-logo-bottom{
+      margin:0 auto 6px;
+    }
+
     .brand-name{
       font-size:1.1rem;
       font-weight:900;
@@ -765,7 +776,7 @@
     }
 
     .blog-masthead-title{
-      font-family:'Playfair Display', serif;
+      font-family:'Archivo', sans-serif;
       font-weight:900;
       font-size:clamp(3rem, 9vw, 5.6rem);
       letter-spacing:-.02em;
@@ -965,6 +976,11 @@
       display:block;
     }
 
+    .process-photo-card:first-child img{
+      transform:scale(1.42);
+      object-position:62% 58%;
+    }
+
     .process-card-top{
       display:flex;
       align-items:center;
@@ -1107,7 +1123,6 @@
       position:relative;
       background:linear-gradient(rgba(10,8,7,.35), rgba(10,8,7,.55));
       color:#fff;
-      border-top:1px solid rgba(255,255,255,.12);
     }
 
     #formulario-contacto{
@@ -1256,9 +1271,11 @@
     .footer-wrap{
       padding:20px 0 28px;
       display:flex;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      gap:6px;
       color:var(--muted);
       font-family:'JetBrains Mono',monospace;
       text-transform:uppercase;
@@ -1400,19 +1417,19 @@
 
       <div class="hero-grid-boxes">
         <div class="hero-grid-box">
-          <div class="num">320+</div>
+          <div class="num" data-count="320">0+</div>
           <div class="label">Proyectos entregados</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">15</div>
+          <div class="num" data-count="15">0</div>
           <div class="label">Años operando</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">94%</div>
+          <div class="num" data-count="94">0%</div>
           <div class="label">Entregas a tiempo</div>
         </div>
         <div class="hero-grid-box">
-          <div class="num">120+</div>
+          <div class="num" data-count="120">0+</div>
           <div class="label">Clientes activos</div>
         </div>
       </div>
@@ -1705,7 +1722,7 @@
     <div class="container footer-main">
       <div class="footer-brand">
         <a href="#top" class="brand">
-          <div class="brand-mark"></div>
+          <img src="Media/Carpeta/Post%20para%20Instagram%20Tienda%20de%20Ropa%20Minimalista%20Blanco%20(1).png" alt="Grupo C&amp;E logo" class="footer-logo-img">
           <span class="brand-name">NÚCLEO</span>
         </a>
         <a href="tel:+50499752125" class="footer-phone">+504 9975-2125</a>
@@ -1728,6 +1745,7 @@
     </div>
 
     <div class="container footer-wrap">
+      <img src="Media/Carpeta/Post%20para%20Instagram%20Tienda%20de%20Ropa%20Minimalista%20Blanco%20(1).png" alt="Grupo C&amp;E logo" class="footer-logo-img footer-logo-bottom">
       <div>© 2026 NÚCLEO Constructora</div>
       <div>Todos los derechos reservados</div>
     </div>

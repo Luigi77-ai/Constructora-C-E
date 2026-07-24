@@ -101,16 +101,22 @@
       cursor:pointer;
     }
 
-    .lang-switch .goog-te-gadget-simple .goog-te-menu-value{
+    .lang-switch .goog-te-gadget-simple a{
       color:var(--muted) !important;
-    }
-
-    .lang-switch .goog-te-gadget-simple .goog-te-menu-value span{
+      text-decoration:none !important;
       font-family:'JetBrains Mono',monospace !important;
+      font-size:11px !important;
       text-transform:uppercase;
       letter-spacing:.12em;
-      font-size:11px !important;
+    }
+
+    .lang-switch .goog-te-gadget-simple a span{
       color:var(--muted) !important;
+      font-family:'JetBrains Mono',monospace !important;
+    }
+
+    .lang-switch .goog-te-gadget-simple > div > span{
+      display:none !important;
     }
 
     .lang-switch .goog-te-gadget-icon{
